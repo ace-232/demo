@@ -197,7 +197,7 @@
 .fade-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease 1.5s, transform 1s ease 1.5s;
+  transition: opacity 0.8s ease 1.5s, transform 1.2s ease 1.5s;
 }
 
 .show-content .fade-up {
