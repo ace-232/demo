@@ -1,0 +1,206 @@
+/* === HERO SECTION === */
+.hero {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, rgba(131, 163, 197, 0.3), white);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* === LOGO ANIMATION === */
+.logo-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 999;
+  transition: all 1s ease;
+}
+
+.logo-image {
+  width: 150px;
+  height: 150px;
+  animation: spin 0.5s linear infinite;
+  transition: all 1s ease;
+}
+
+.brand-text {
+  font-size: 2rem;
+  color: #03305F;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 1s ease 1s;
+  align-items: center;      
+}
+
+.logo-wrapper.animate {
+  top: 1.5rem;
+  left: 2.5rem;
+  transform: none;
+}
+
+.logo-wrapper.animate .logo-image {
+  width: 50px;
+  height: 50px;
+  animation: none;
+}
+
+.logo-wrapper.animate .brand-text {
+  opacity: 1;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* === NAVBAR === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease 1.3s;
+  /* ✅ background removed */
+}
+
+.show-nav {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navbar-center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12px;     
+  gap: 20px; 
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #174576;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* === LOGIN BUTTON === */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  align-items: center; 
+  padding-top: 10px;     
+}
+
+.login-btn {
+  background-color: #1e5289;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #011e3f;
+}
+
+/* === HEADER CONTENT === */
+
+
+.header-content {
+  opacity: 0;
+  transition: opacity 1s ease 1.8s;
+  padding: 20px 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-grow: 1;
+  height: 100%;
+  position: relative;
+}
+
+.show-content {
+  opacity: 1;
+}
+
+.mission-statement {
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 800;
+  color: black;
+  max-width: 700px;
+  line-height: 1.3;
+  margin-top: 90px;
+}
+
+.intro-box {
+  position: absolute;
+  bottom: 60px;      /* slightly above the bottom */
+  right: 2rem;       /* position on the right side */
+  max-width: 400px;
+  text-align: left;  /* ✅ left-align the text and button */
+}
+
+.intro-text {
+  font-size: 1.3rem;
+  color: black;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.get-started-btn {
+  background-color:  #1e5289;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* spacing between text and arrow */
+  transition: background-color 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background-color: #011e3f;
+}
+
+.arrow-icon svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* === Fade-in from bottom animation === */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease 1.5s, transform 1s ease 1.5s;
+}
+
+.show-content .fade-up {
+  opacity: 1;
+  transform: translateY(0);
+}
