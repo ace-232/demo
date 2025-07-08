@@ -1,0 +1,136 @@
+.hero{
+  position: sticky;
+  top: 0;
+  z-index: 998;
+  background-color: rgb(255, 255, 255);
+}
+  
+
+.logo-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 999;
+  transition: all 1s ease;
+}
+
+.logo-image {
+  width: 150px;
+  height: 150px;
+  animation: spin 0.5s linear infinite;
+  transition: all 1s ease;
+}
+
+.brand-text {
+  font-size: 2rem;
+  color: #184d85;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 1s ease 1s;
+  align-items: center;      
+}
+
+.logo-wrapper.animate {
+  top: 1.5rem;
+  left: 2.5rem;
+  transform: none;
+}
+
+.logo-wrapper.animate .logo-image {
+  width: 50px;
+  height: 50px;
+  animation: none;
+}
+
+.logo-wrapper.animate .brand-text {
+  opacity: 1;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* === NAVBAR === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+
+  /* start transparent & hidden */
+  opacity: 0;
+  pointer-events: none;
+  background: transparent;
+
+  /* fade in nav, then fade in background after 2s */
+  transition:
+    opacity 1s ease 1.3s,
+    background 1s ease 1.8s;
+}
+
+.navbar.show-nav {
+  opacity: 1;
+  pointer-events: auto;
+  
+  /* this will actually take effect after the 2s delay */
+  background: radial-gradient(
+    circle at center,
+    rgba(131, 163, 197, 0.3),
+    white
+  );
+}
+
+.navbar-center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12px;     
+  gap: 20px; 
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #174576;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* === LOGIN BUTTON === */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  align-items: center; 
+  padding-top: 10px;     
+}
+
+.login-btn {
+  background-color: #2e649d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #011e3f;
+}
+
