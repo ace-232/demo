@@ -1,0 +1,128 @@
+.industry-section {
+  padding: 4rem 5%;
+  background: radial-gradient(
+    circle at center,
+    rgba(131, 163, 197, 0.3),
+    white
+  );
+}
+
+/* === Heading === */
+.industry-heading {
+  opacity: 0;
+  transform: translateX(-50px);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #174576;
+}
+
+/* slide-in-from-left keyframes */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.industry-heading.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+/* === Grid === */
+.industry-grid {
+  display: grid;
+  /* exactly 4 columns, at least 220px each, then wrap */
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+/* === Boxes === */
+.industry-box {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow:
+    0 8px 16px rgba(43, 69, 124, 0.2),
+    0 16px 32px rgba(0, 0, 0, 0.15);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  /* start hidden and shifted down */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* slide-up keyframes (optional, you can also use transition) */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.industry-box.slide-up {
+  /* either animate via keyframes: */
+  animation: slideUp 0.6s ease-out forwards;
+
+  /* —or simply use the transition above and set: */
+  /* opacity:1; transform:translateY(0); */
+}
+
+/* Icon, title, desc styling (unchanged) */
+.industry-box .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #010102;
+}
+
+.industry-box .title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  color: #174576;
+}
+
+.industry-box .desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+  flex-grow: 1;
+}
+
+/* Hover lift effect */
+.industry-box:hover {
+  transform: translateY(-8px) !important;
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.25),
+    0 24px 48px rgba(0, 0, 0, 0.15);
+}
+.industry-box:hover .icon,
+.industry-box:hover .title {
+  color: #184d85;
+}
+
+/* Responsive fallback */
+@media (max-width: 1024px) {
+  .industry-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .industry-grid {
+    grid-template-columns: 1fr;
+  }
+}

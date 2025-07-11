@@ -1,0 +1,135 @@
+.value-section {
+  padding: 4rem 5%;
+  background: #f0f4f8;
+}
+
+/* === HEADER (top) === */
+.value-header {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.value-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #174576;
+  margin-bottom: 1rem;
+
+  /* start hidden & down */
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.value-intro {
+  font-size: 1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+
+  /* start hidden & left */
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+/* === MAIN CONTENT === */
+.value-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Features box on left */
+.value-features-box {
+  flex: 1;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+
+  /* start hidden */
+  opacity: 0;
+}
+
+.value-features-box ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.value-features-box li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.value-icon {
+  color: #4a89fd;
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+}
+
+/* Image on right */
+.value-img-container {
+  flex: 1;
+  text-align: center;
+
+  /* start hidden & off to the right */
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.value-img-container img {
+  width: 390px;
+  height: 326px;
+  border-radius: 0.5rem;
+  box-shadow:
+    0 12px 24px rgba(14, 21, 97, 0.25),
+    0 24px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* === ANIMATIONS === */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.value-heading.slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+.value-intro.slide-in-left {
+  animation: slideInLeft 0.6s ease-out 0.3s forwards;
+}
+.value-features-box.fade-in {
+  animation: fadeIn 0.6s ease-out 0.5s forwards;
+}
+.value-img-container.slide-in-right {
+  animation: slideInRight 0.8s ease-out 0.7s forwards;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .value-main {
+    flex-direction: column;
+  }
+  .value-img-container,
+  .value-features-box {
+    width: 100%;
+  }
+  .value-header {
+    text-align: left;
+  }
+}

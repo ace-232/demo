@@ -1,0 +1,59 @@
+.about-us-section {
+  padding: 40px 2rem;
+  background-color: rgb(207, 229, 245);
+  display: flex;
+  justify-content: center;
+}
+
+.about-us-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+
+.about-us-text p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.know-more-btn {
+  background-color:  #2e649d;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: auto;
+}
+
+.know-more-btn:hover {
+  background-color: #011e3f;
+}
+
+.arrow-icon svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* === Fade-up-on-scroll === */
+.fade-up-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}

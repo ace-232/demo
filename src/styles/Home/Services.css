@@ -1,0 +1,109 @@
+.services-section {
+  padding: 40px 2rem;
+  background: white;
+  text-align: center;
+}
+
+.services-title {
+  font-size: 2.5rem;
+  color: #03305F;
+  margin-bottom: 40px;
+}
+
+.services-subtitle {
+  font-size: 1.3rem;
+  color: #000000;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* container for the 3 cards, overlapped by default */
+.services-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* overlap them */
+.service-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(3, 48, 95, 0.1);
+  padding: 2rem;
+  flex: 0 0 320px;
+  margin: 0 -160px; /* half of 320px to overlap */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 1s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(3, 48, 95, 0.15);
+}
+
+.service-image {
+  width: 100%;
+  height: 180px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f0f0f0;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-heading {
+  font-size: 1.5rem;
+  color: #03305F;
+  margin-bottom: 0.75rem;
+}
+
+.service-text {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #03305F;
+  text-decoration: none; /* remove underline */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.service-link:hover {
+  color: #011e3f;
+}
+
+.service-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* slide-out only when .show is added (on scroll) */
+.services-cards.show .service-card:nth-child(1) {
+  transform: translateX(-340px);
+}
+.services-cards.show .service-card:nth-child(2) {
+  transform: translateX(0);
+}
+.services-cards.show .service-card:nth-child(3) {
+  transform: translateX(340px);
+}

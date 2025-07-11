@@ -1,22 +1,20 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import Cover from "./components/Cover";
-import AboutUs from "./components/AboutUs";
-import Services from "./components/Services";
-import Testimonial from "./components/Testimonial";
-import Footer from "./components/Footer";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home       from './components/Home/home';   // <-- picks up index.jsx
+import WhatWeDo   from './components/WhatWeDo/WhatWoDo';
+import Footer       from './components/Home/Footer';
 
-function App() {
+// …other page imports…
+
+export default function App() {
   return (
-    <div className="app">
-      <Navbar />
-        <Cover />
-      <AboutUs />
-      <Services />
-      <Testimonial />
-      <Footer />
-    </div>
+    <>
+      <Routes>
+        <Route path="/"           element={<Home />}     />
+        <Route path="/what-we-do" element={<WhatWeDo />} />
+      </Routes>
+
+      <Footer />  {/* <-- this will show on every page */}
+    </>
   );
 }
-
-export default App;
