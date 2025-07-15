@@ -60,6 +60,37 @@ const isActive = (p) => location.pathname === p;
               ABOUT US
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
+              SERVICES
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/what-we-do"
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
+              CAREER
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/about-us"
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
+              CONTACT US
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </div>
