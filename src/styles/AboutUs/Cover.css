@@ -1,0 +1,49 @@
+.what-we-do-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Hero section */
+.what-we-do-hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+
+  /* background now driven by inline style in JSX */
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Dark tint overlay */
+.what-we-do-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Slide‑in animation */
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);      opacity: 1; }
+}
+
+.what-we-do-title {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.1em;
+  margin: 0;
+
+  /* fire immediately on mount */
+  opacity: 0;
+  animation: slideInFromRight 0.8s ease-out forwards;
+}

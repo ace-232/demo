@@ -1,0 +1,118 @@
+.help-section {
+  padding: 4rem 5%;
+  background: radial-gradient(circle at center, rgba(131, 163, 197, 0.3), white);
+}
+
+.help-heading {
+  opacity: 0;
+  transform: translateY(20px);
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.help-desc {
+  opacity: 0;
+  transform: translateX(-30px);
+  text-align: center;
+  font-size: 1.1rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.help-box {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: 1rem;
+  color: #fff;
+  
+  /* 1) transparent border, backgrounds clipped to border-box & padding-box */
+  border: 1px solid transparent;
+  background-image:
+    /* fill gradient */
+    linear-gradient(135deg, #0d121f 0%, #131a2c 100%),
+    /* subtle border glow (fades out) */
+    linear-gradient(135deg, rgba(38, 75, 150, 0.6), rgba(0,0,0,0));
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  
+  /* your existing shadows */
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.7),
+    0 16px 32px rgba(0,0,0,0.5);
+  
+  /* entrance & hover as before */
+  transform: translateX(30px);
+  opacity: 0;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* small inset square behind the icon */
+.help-box .icon {
+  font-size: 1.8rem;
+  color: #8ab1ff;
+  background-color: #0b1021;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    2px 2px 4px rgba(0,0,0,0.6);
+  margin-bottom: 1rem;
+}
+
+.help-box h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.help-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Hover lift effect */
+.help-box:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 12px 24px rgba(0,0,0,0.6),
+    0 24px 48px rgba(0,0,0,0.4);
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px);  }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+.slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+.slide-in-right {
+  /* each box picks up its own delay from inline style */
+  animation: slideInRight 0.6s ease-out forwards;
+}

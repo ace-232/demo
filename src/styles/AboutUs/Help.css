@@ -1,0 +1,128 @@
+.help-section {
+  padding: 4rem 5%;
+  background: #f9faff;
+}
+
+/* Heading + paragraph */
+.help-heading,
+.help-desc {
+  opacity: 0;
+}
+.help-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  transform: translateX(-50px);
+}
+.help-desc {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  font-size: 1.1rem;
+  transform: translateX(50px);
+}
+
+/* Layout */
+.help-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.help-image-container {
+  flex: 1;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.help-image-container img {
+  width: 100%;
+  border-radius: 1rem;
+  display: block;
+}
+
+/* Features grid */
+.help-features-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem;
+}
+/* ===== help-feature-box ===== */
+.help-feature-box {
+  display: flex;               /* row by default */
+  align-items: center;         /* vertical centering */
+  gap: 0.75rem;                /* space between icon & text */
+  padding: 0.75rem 1rem;       /* reduced vertical padding */
+  background: #fff;
+  border-radius: 0.75rem;
+   box-shadow:
+    0 8px 16px rgba(43, 69, 124, 0.2),
+    0 16px 32px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* icon now sits left of text and is black */
+.help-feature-box .icon {
+  font-size: 1.5rem;
+  color: #000;
+  margin: 0;                   /* remove bottom‑margin */
+}
+
+/* title next to icon */
+.help-feature-box h3 {
+  margin: 0;                   /* no extra spacing */
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+}
+
+/* hover effect (slight lift + deeper shadow) */
+.help-feature-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+}
+.help-feature-box:hover .icon,
+.help-feature-box:hover h3 {
+  color: #011e3f;              /* or keep black if you prefer */
+}
+
+/* animation stays the same */
+.help-feature-box.animate {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+
+/* Animations */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.help-heading.animate {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+.help-desc.animate {
+  animation: slideInRight 0.8s ease-out 0.3s forwards;
+}
+.help-image-container.animate {
+  animation: slideUp 0.8s ease-out 0.5s forwards;
+}
+.help-feature-box.animate {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .help-content { flex-direction: column; }
+  .help-features-grid { grid-template-columns: 1fr; }
+}

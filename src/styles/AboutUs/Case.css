@@ -1,0 +1,145 @@
+.carousel-section {
+  padding: 4rem 5%;
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(131, 163, 197, 0.3), white);
+}
+
+/* Heading & intro */
+.carousel-heading {
+  opacity: 0;
+  transform: translateX(50px);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #174576;
+}
+.carousel-para {
+  opacity: 0;
+  transform: translateY(30px);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+/* 2) Slide in from left */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Carousel layout */
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.nav.arrow {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #174576;
+  transition: color 0.2s;
+}
+.nav.arrow:hover { color: #0e233d; }
+
+/* Wrapper around frame + title */
+.slide-wrapper {
+  opacity: 0;
+  transform: translateX(50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Fixed image frame */
+.slide-container {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #f0f0f0;
+  border-radius: 0.75rem;
+   box-shadow:
+    0 8px 16px rgba(23, 59, 138, 0.2),
+    0 16px 32px rgba(0, 0, 0, 0.15);
+}
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide.active { opacity: 1; }
+
+/* Force image to fill frame */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Title below the image */
+.slide-title {
+  margin-top: 0.75rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #101010;
+}
+
+/* Dots nav */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.dot.active { background: #174576; }
+
+/* Read More button */
+.read-more-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+.read-more-btn {
+  background-color: #2e649d;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+.read-more-btn:hover {
+  background-color: #011e3f;
+}
+
+.carousel-heading.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+.carousel-para.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+.slide-wrapper.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}

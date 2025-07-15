@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";        // ← import Link
-import '../../styles/Home/Navbar.css';
-import logo from "../../assets/logo2.png";
+import { NavLink, useLocation } from "react-router-dom";        // ← import Link
+import './Navbar.css';
+import logo from "./assets/logo2.png";
 
 function Navbar() {
   const [spinDone, setSpinDone] = useState(false);
@@ -30,22 +30,36 @@ const isActive = (p) => location.pathname === p;
       <nav className={`navbar ${spinDone ? "show-nav" : ""}`}>
         <ul className="nav-links">
           <li>
-            <Link to="/" className={`nav-link ${isActive("/") ? "active" : ""}`}>
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
               HOME
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/what-we-do"
-              className={`nav-link ${isActive("/what-we-do") ? "active" : ""}`}
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
             >
-              WHAT WE DO
-            </Link>
+              WHAT WE DO
+            </NavLink>
           </li>
-            <li><a href="#">ABOUT US</a></li>
-            <li><a href="#">SERVICES</a></li>
-            <li><a href="#">CAREER</a></li>
-            <li><a href="#">CONTACT US</a></li>
+          <li>
+            <NavLink
+              to="/about-us"
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
+              ABOUT US
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </div>
