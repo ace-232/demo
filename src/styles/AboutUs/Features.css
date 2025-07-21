@@ -23,7 +23,8 @@
 
 .help-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* always exactly 3 columns, each one flexible */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
 }
 
