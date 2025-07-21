@@ -1,18 +1,18 @@
 .services-section {
   padding: 40px 2rem;
-  background: white;
+  background: #0a2746;
   text-align: center;
 }
 
 .services-title {
   font-size: 2.5rem;
-  color: #03305F;
+  color: #ffffff;
   margin-bottom: 40px;
 }
 
 .services-subtitle {
   font-size: 1.3rem;
-  color: #000000;
+  color: #ffffff;
   margin-bottom: 2rem;
   max-width: 800px;
   margin-left: auto;
@@ -30,7 +30,11 @@
 
 /* overlap them */
 .service-card {
-  background: white;
+  background-image:
+    /* fill gradient */
+    linear-gradient(135deg, #dcdd84 0%, #b4b54c 100%),
+    /* subtle border glow (fades out) */
+    linear-gradient(135deg, rgba(38, 75, 150, 0.6), rgba(0,0,0,0));
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(3, 48, 95, 0.1);
   padding: 2rem;

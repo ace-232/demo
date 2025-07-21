@@ -1,0 +1,87 @@
+/* Container */
+.competencies-section {
+  padding: 4rem 5%;
+  background: radial-gradient(circle at center, rgba(131, 163, 197, 0.3), white);
+}
+
+/* Heading starts hidden, off to the right */
+.competencies-heading {
+  opacity: 0;
+  transform: translateX(100px);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+/* Slide‑in from right */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* Grid layout */
+.competencies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 7rem;
+}
+
+/* Each box starts hidden, off to the left */
+.competency-box {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 0.75rem;
+   box-shadow:
+    0 8px 16px rgba(43, 69, 124, 0.2),
+    0 16px 32px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateX(-50px);
+  text-align: center;
+}
+
+/* Slide‑in from left */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+/* Icon styling */
+.competency-icon {
+  font-size: 1.8rem;
+  color: #8ab1ff;
+  background-color: #0b1021;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    2px 2px 4px rgba(0,0,0,0.6);
+  margin-bottom: 1rem;
+}
+
+/* Title styling */
+.competency-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}

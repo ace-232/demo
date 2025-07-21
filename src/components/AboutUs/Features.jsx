@@ -1,50 +1,50 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
-  FaDollarSign,
-  FaChartLine,
-  FaLock,
-  FaUserShield,
-  FaUsers,
-  FaHeadset,
+   FaLightbulb,       // Expertise
+  FaGlobeAmericas,   // Global Reach
+  FaHandshake,       // Integrity
+  FaCheckCircle,     // Quality Focused Approach
+  FaUserCheck,       // Client‑Focused Approach
+  FaUsersCog
 } from "react-icons/fa";
 import "../../styles/AboutUs/Features.css";
 
 const features = [
   {
-    icon: <FaDollarSign />,
-    title: "Instant Savings",
+    icon: <FaLightbulb />,
+    title: "Expertise",
     desc:
-      "Get immediate savings on every purchase, powered by AI to optimize your transactions.",
+      "Our team of researchers employs a data-driven, consultative approach to provide actionable insights for our clients. Versatile team with extensive research experience across various fields.",
   },
   {
-    icon: <FaChartLine />,
-    title: "Real‑Time Insights",
+    icon: <FaGlobeAmericas />,
+    title: "Global Reach",
     desc:
-      "Make smarter decisions with live data and actionable insights, delivered in real‑time to stay ahead of the curve.",
+      "Our global reach and deep industry expertise enable us to uncover unique insights for our clients in over 80 countries and across industries.",
   },
   {
-    icon: <FaLock />,
-    title: "Secure Transactions",
+    icon: <FaHandshake />,
+    title: "Integrity",
     desc:
-      "Prioritize safety with cutting‑edge encryption and fraud detection on every transaction.",
+      "Integrity is the cornerstone of our business. We uphold the highest standards of honesty, transparency, and fairness in all our interactions.",
   },
   {
-    icon: <FaUserShield />,
-    title: "Adaptive Systems",
+    icon: <FaCheckCircle />,
+    title: "Quality Focused Approach",
     desc:
-      "Leverage AI‑driven systems that evolve to your business needs for maximum efficiency.",
+      "Benefit from our efficient resource management and competitive pricing while receiving high-quality results. We believe in a culture of continuous learning and growth, always striving to improve our market research capabilities and exceed client expectations.",
   },
   {
-    icon: <FaUsers />,
+    icon: <FaUserCheck />,
+    title: "Client focused approach",
+    desc:
+      "We as a young team are always committed to delivering exceptional client satisfaction. Our dedicated team combines passion and professionalism to provide you with expert research solutions.We as a young team are always committed to delivering exceptional client satisfaction.",
+  },
+  {
+    icon: <FaUsersCog />,
     title: "Expert Network",
     desc:
-      "Access our global network of experts to gain sector‑specific knowledge whenever you need it.",
-  },
-  {
-    icon: <FaHeadset />,
-    title: "Dedicated Support",
-    desc:
-      "Enjoy 24/7 premium support to resolve any issue and keep your operations running smoothly.",
+      "By leveraging our global network of experts from over 100 sectors across 80+ countries, we provide our clients with actionable insights that drive informed decision-making, all while maintaining affordability.",
   },
 ];
 

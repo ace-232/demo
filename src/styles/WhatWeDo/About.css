@@ -1,11 +1,12 @@
 .feature-section {
   display: block;
+  padding-bottom: 3rem; /* space below */
 }
 
 .section-heading {
   width: 100%;
   text-align: center;
-  padding-top: 4rem;       /* lots of breathing room above */
+  padding-top: 2rem;       /* lots of breathing room above */
   margin-bottom: 7rem;     /* space before your images/text */
   font-size: 2.5rem;       /* tweak to taste */
   font-weight: 700;

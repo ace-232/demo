@@ -1,10 +1,6 @@
 .industry-section {
   padding: 4rem 5%;
-  background: radial-gradient(
-    circle at center,
-    rgba(131, 163, 197, 0.3),
-    white
-  );
+  background: #0a2746;
 }
 
 /* === Heading === */
@@ -15,7 +11,7 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2.5rem;
-  color: #174576;
+  color: #ffffff;
 }
 
 /* slide-in-from-left keyframes */
@@ -45,7 +41,11 @@
 
 /* === Boxes === */
 .industry-box {
-  background: #fff;
+  background-image:
+    /* fill gradient */
+    linear-gradient(135deg, #dddf6e 0%, #abad36 100%),
+    /* subtle border glow (fades out) */
+    linear-gradient(135deg, rgba(38, 75, 150, 0.6), rgba(0,0,0,0));
   border-radius: 1rem;
   box-shadow:
     0 8px 16px rgba(43, 69, 124, 0.2),
@@ -93,13 +93,13 @@
   font-weight: 600;
   margin-bottom: 0.75rem;
   text-transform: uppercase;
-  color: #174576;
+  color: #103257;
 }
 
 .industry-box .desc {
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #555;
+  color: #000000;
   flex-grow: 1;
 }
 
@@ -112,7 +112,7 @@
 }
 .industry-box:hover .icon,
 .industry-box:hover .title {
-  color: #184d85;
+  color: #112d4b;
 }
 
 /* Responsive fallback */

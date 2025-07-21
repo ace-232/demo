@@ -1,0 +1,41 @@
+.about-us-section {
+  padding: 40px 2rem;
+  background-color: rgb(132, 186, 225);
+  display: flex;
+  justify-content: center;
+}
+
+.about-us-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.about-us-text h4 {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.about-us-text p {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* === Fade-up-on-scroll === */
+.fade-up-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}

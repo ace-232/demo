@@ -1,16 +1,18 @@
 import React from 'react';
 import Cover from './Cover';
-import Help from './Help';
+import About from './About';
+import Industry from './Industry';
+import Value from './Value';
 import Features from './Features';
-import Case from './Case';
 
-export default function WhatWeDo() {
+export default function AboutUs() {
   return (
     <>
       <Cover />
-      <Help />
+      <About />
+      <Industry />
       <Features />
-      <Case />
+      <Value />
     </>
   );
 }

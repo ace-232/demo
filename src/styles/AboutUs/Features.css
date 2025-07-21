@@ -1,6 +1,6 @@
 .help-section {
   padding: 4rem 5%;
-  background: radial-gradient(circle at center, rgba(131, 163, 197, 0.3), white);
+  background: white
 }
 
 .help-heading {
@@ -38,7 +38,7 @@
   border: 1px solid transparent;
   background-image:
     /* fill gradient */
-    linear-gradient(135deg, #0d121f 0%, #131a2c 100%),
+    linear-gradient(135deg, #1a294f 0%, #172036 100%),
     /* subtle border glow (fades out) */
     linear-gradient(135deg, rgba(38, 75, 150, 0.6), rgba(0,0,0,0));
   background-origin: padding-box, border-box;
@@ -61,7 +61,7 @@
 /* small inset square behind the icon */
 .help-box .icon {
   font-size: 1.8rem;
-  color: #8ab1ff;
+  color:#dddf6e;
   background-color: #0b1021;
   padding: 0.75rem;
   border-radius: 0.5rem;

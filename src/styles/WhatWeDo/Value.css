@@ -1,135 +1,125 @@
 .value-section {
   padding: 4rem 5%;
-  background: #f0f4f8;
+  background: #0a2746;
 }
 
-/* === HEADER (top) === */
+/* === HEADER === */
 .value-header {
   max-width: 800px;
   margin: 0 auto 3rem;
   text-align: center;
 }
 
+/* reuse your existing animations */
 .value-heading {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #174576;
+  color: #ffffff;
   margin-bottom: 1rem;
-
-  /* start hidden & down */
   opacity: 0;
   transform: translateY(30px);
+  animation-fill-mode: both;
 }
 
 .value-intro {
   font-size: 1rem;
-  color: #555;
+  color: #ffffff;
   max-width: 700px;
   margin: 0 auto;
-
-  /* start hidden & left */
   opacity: 0;
   transform: translateX(-50px);
+  animation-fill-mode: both;
 }
 
-/* === MAIN CONTENT === */
-.value-main {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-/* Features box on left */
-.value-features-box {
-  flex: 1;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-
-  /* start hidden */
-  opacity: 0;
-}
-
-.value-features-box ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.value-features-box li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.value-icon {
-  color: #4a89fd;
-  margin-right: 0.75rem;
-  font-size: 1.25rem;
-}
-
-/* Image on right */
-.value-img-container {
-  flex: 1;
-  text-align: center;
-
-  /* start hidden & off to the right */
-  opacity: 0;
-  transform: translateX(50px);
-}
-
-.value-img-container img {
-  width: 390px;
-  height: 326px;
-  border-radius: 0.5rem;
-  box-shadow:
-    0 12px 24px rgba(14, 21, 97, 0.25),
-    0 24px 48px rgba(0, 0, 0, 0.15);
-}
-
-/* === ANIMATIONS === */
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
 @keyframes slideInLeft {
   from { opacity: 0; transform: translateX(-50px); }
   to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(50px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
 }
 
 .value-heading.slide-up {
   animation: slideUp 0.6s ease-out forwards;
 }
+
 .value-intro.slide-in-left {
   animation: slideInLeft 0.6s ease-out 0.3s forwards;
 }
-.value-features-box.fade-in {
-  animation: fadeIn 0.6s ease-out 0.5s forwards;
+
+/* lay out all five in one line */
+.value-spiral {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6rem;
+  margin-top: 2rem;
 }
-.value-img-container.slide-in-right {
-  animation: slideInRight 0.8s ease-out 0.7s forwards;
+/* each circle starts hidden + down */
+.circle-wrapper {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  text-align: center;
+}
+.value-section.in-view .circle-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* stagger delays */
+.value-section.in-view .circle-wrapper:nth-child(1) {
+  transition-delay: 0.4s;
+}
+.value-section.in-view .circle-wrapper:nth-child(2) {
+  transition-delay: 0.6s;
+}
+.value-section.in-view .circle-wrapper:nth-child(3) {
+  transition-delay: 0.8s;
+}
+.value-section.in-view .circle-wrapper:nth-child(4) {
+  transition-delay: 1s;
+}
+.value-section.in-view .circle-wrapper:nth-child(5) {
+  transition-delay: 1.2s;
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  .value-main {
-    flex-direction: column;
+/* the circle itself */
+.circle {
+  width: 120px;
+  height: 120px;
+  border: 10px solid #dddf6e;
+  border-radius: 50%;
+  background-image:
+    /* fill gradient */
+    linear-gradient(135deg, #1a294f 0%, #172036 100%),
+    /* subtle border glow (fades out) */
+    linear-gradient(135deg, rgba(38, 75, 150, 0.6), rgba(0,0,0,0));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #dddf6e;
+}
+.circle-label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+/* responsive shrink */
+@media (max-width: 600px) {
+  .circle {
+    width: 80px;
+    height: 80px;
+    font-size: 1.5rem;
   }
-  .value-img-container,
-  .value-features-box {
-    width: 100%;
-  }
-  .value-header {
-    text-align: left;
+  .circle-wrapper {
+    flex: 1 1 80px;
   }
 }

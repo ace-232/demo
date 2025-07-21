@@ -93,7 +93,7 @@
 
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -111,4 +111,66 @@
 /* hover only for the “WHAT WE DO” link */
 .nav-link:hover {
   color: #fff;
+}
+
+/* …existing navbar styles… */
+
+.nav-item {
+  position: relative;
+}
+
+/* hide by default */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.25rem;
+  background-color:  rgb(135, 193, 234);
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  list-style: none;
+  min-width: 200px;
+  z-index: 10;
+}
+
+/* show on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* also show when we’ve toggled “open” via JS */
+.nav-item.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+/* your dropdown links */
+.dropdown-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #174576;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.dropdown-link:hover {
+  color: #000203;
+}
+
+/* strip all native button chrome */
+button.nav-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;    /* keep same font/size/weight as your <a> */
+  color: inherit;   /* same color as links */
+  cursor: pointer;  /* pointer cursor on hover */
+  outline: none;    /* if you don’t want the focus ring */
+}
+
+/* then your existing hover/active styles will apply */
+button.nav-link:hover,
+button.nav-link.active {
+  color: #fff; /* or whatever your hover color is */
 }

@@ -1,16 +1,14 @@
 import React from 'react';
 import Cover from './Cover';
 import About from './About';
-import Industry from './Industry';
-import Value from './Value';
+import CoreCompetencies from './CoreCompetencies';
 
-export default function WhatWeDo() {
+export default function Network() {
   return (
     <>
       <Cover />
       <About />
-      <Industry />
-      <Value />
+      <CoreCompetencies />
     </>
   );
 }
