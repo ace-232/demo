@@ -1,41 +1,77 @@
-.what-we-do-page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.what-we-do-hero {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;   /* instead of center */
-  padding-left: 5%;               /* give it some breathing room */
-  /* (everything else stays the same) */
+/* full‑screen hero with background image */
+.about-cover {
   position: relative;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 5%;
+  box-sizing: border-box;
   overflow: hidden;
+  color: white;
 }
 
-/* 3) Make sure the title is left‑aligned */
-.what-we-do-title {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  font-size: clamp(2.5rem, 5vw, 6rem);
-  font-weight: 700;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  letter-spacing: 0.1em;
-  margin: 0;
-  padding-left: 10%;
-  text-align: left;               /* ensure the text itself is left‑aligned */
-  opacity: 0;
-  animation: slideInFromRight 0.8s ease-out forwards;
+/* breadcrumb at top */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
 }
-/* Slide‑in animation */
-@keyframes slideInFromRight {
-  from { transform: translateX(100%); opacity: 0; }
+.breadcrumb-link {
+  color: #fff;
+  text-decoration: none;
+}
+.breadcrumb-separator {
+  margin: 0 0.5rem;
+}
+.breadcrumb-current {
+  font-weight: 500;
+}
+
+.breadcrumb-link:hover svg {
+  color: #FFD700;               /* yellow/gold */
+}
+/* left‑side text block */
+.cover-text {
+  max-width: 50%;
+}
+
+/* your big title */
+.cover-title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+  opacity: 0;
+}
+
+/* the subtitle paragraph */
+.cover-subtitle {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  max-width: 480px;
+  opacity: 0;
+}
+
+/* slide‑in keyframes */
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to   { transform: translateX(0);       opacity: 1; }
+}
+@keyframes slideInRight {
+  from { transform: translateX(50px); opacity: 0; }
   to   { transform: translateX(0);      opacity: 1; }
 }
 
+/* fire animations on mount */
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out 0.3s forwards;
+}

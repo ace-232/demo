@@ -1,0 +1,41 @@
+.what-we-do-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.what-we-do-hero {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;   /* instead of center */
+  padding-left: 5%;               /* give it some breathing room */
+  /* (everything else stays the same) */
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* 3) Make sure the title is left‑aligned */
+.what-we-do-title {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-size: clamp(2.5rem, 5vw, 6rem);
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.1em;
+  margin: 0;
+  padding-left: 10%;
+  text-align: left;               /* ensure the text itself is left‑aligned */
+  opacity: 0;
+  animation: slideInFromRight 0.8s ease-out forwards;
+}
+/* Slide‑in animation */
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);      opacity: 1; }
+}
+
