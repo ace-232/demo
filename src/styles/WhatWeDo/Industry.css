@@ -43,7 +43,7 @@
 .industry-box {
   background-image:
     /* fill gradient */
-    linear-gradient(135deg, #dddf6e 0%, #abad36 100%),
+    linear-gradient(135deg, rgb(195, 163, 248) 0%,rgb(148, 113, 200) 100%),
     /* subtle border glow (fades out) */
     linear-gradient(135deg, rgba(38, 75, 150, 0.6), rgba(0,0,0,0));
   border-radius: 1rem;

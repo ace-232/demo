@@ -68,7 +68,7 @@
   margin-top: 1rem;
   padding: 1rem 2rem;
   font-size: 1rem;
-  background-color: rgb(204, 220, 234);
+  background-color: rgb(206, 179, 249);
   border: rgb(22, 38, 86) 1px solid;
   color: #050000;
   text-decoration: none;
@@ -86,7 +86,7 @@
 }
 
 .cta-btn:hover {
-  background-color: #011e3f;
+  background-color: #8c43ae;
   transform: translateY(-2px);
 }
 

@@ -1,0 +1,88 @@
+/* src/styles/Career/SkillsSection.css */
+.skills-section {
+  padding: 4rem 5%;
+  background: #f9fafb;
+  text-align: center;
+}
+
+.skills-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2e3a59;
+  margin-bottom: 2rem;
+
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skills-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* icon styling */
+.skill-icon {
+  color: #5c04a8; /* orange dot */
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.skill-text {
+  font-size: 1rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+/* === Animations === */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skills-heading.slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.skills-box.fade-up {
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+/* Responsive: always two columns on mobile, or switch to one column */
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}

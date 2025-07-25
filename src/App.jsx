@@ -9,6 +9,7 @@ import Network from "./components/Network/Network";
 import Lead from "./components/Lead/Lead";
 import Competition from "./components/Competition/Competition";
 import Footer    from "./components/Home/Footer";
+import Career  from "./components/Career/Career";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/services/expert-network-access" element={<Network />} />
         <Route path="/services/lead-generation" element={<Lead />} />
         <Route path="/services/competition-benchmarking" element={<Competition />} />
+        <Route path="/career"     element={<Career />}     />
       </Routes>
       <Footer />
     </>

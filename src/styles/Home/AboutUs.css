@@ -1,6 +1,6 @@
 .about-us-section {
   padding: 40px 2rem;
-  background-color: rgb(207, 229, 245);
+  background-color: rgb(230, 203, 244);
   display: flex;
   justify-content: center;
 }
@@ -23,7 +23,7 @@
 }
 
 .know-more-btn {
-  background-color:  #2e649d;
+  background-color:  #0b0114;
   color: white;
   padding: 12px 24px;
   border: none;

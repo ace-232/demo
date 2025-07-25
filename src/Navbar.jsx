@@ -121,7 +121,7 @@ const isActive = (p) => location.pathname === p;
           </li>
           <li>
             <NavLink
-              to="/what-we-do"
+              to="/career"
               className={({ isActive }) =>
                 isActive ? 'nav-link active' : 'nav-link'
               }

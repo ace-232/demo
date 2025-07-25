@@ -62,7 +62,7 @@
 /* small inset square behind the icon */
 .help-box .icon {
   font-size: 1.8rem;
-  color:#dddf6e;
+  color:rgb(182, 145, 241);
   background-color: #0b1021;
   padding: 0.75rem;
   border-radius: 0.5rem;

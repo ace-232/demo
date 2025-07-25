@@ -22,7 +22,7 @@
 .what-we-do-title {
   position: relative;
   z-index: 2;
-  color: #fff;
+  color: rgb(228, 215, 249);
   font-size: clamp(2.5rem, 5vw, 6rem);
   font-weight: 700;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);

@@ -26,13 +26,15 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  gap: 1rem;
+  
 }
 
 /* overlap them */
 .service-card {
   background-image:
     /* fill gradient */
-    linear-gradient(135deg, #dcdd84 0%, #b4b54c 100%),
+    linear-gradient(135deg, rgb(200, 170, 248) 0%,rgb(163, 126, 219) 100%),
     /* subtle border glow (fades out) */
     linear-gradient(135deg, rgba(38, 75, 150, 0.6), rgba(0,0,0,0));
   border-radius: 12px;

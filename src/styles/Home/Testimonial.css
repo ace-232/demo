@@ -4,7 +4,7 @@
   align-items: flex-start;
   padding: 60px 40px;
   font-family: 'Segoe UI', sans-serif;
- background: radial-gradient(circle at center, rgba(131, 163, 197, 0.3), white);
+ background: radial-gradient(circle at center, rgba(182, 131, 197, 0.3), white);
 }
 
 .testimonial-left {
@@ -71,7 +71,7 @@
   width: 64px;                     /* make the button a bit larger */
   height: 64px;
   border-radius: 50%;
-  background-color: #dde047;
+  background-color: rgb(174, 131, 244);
   border: none;
   display: flex;
   align-items: center;
