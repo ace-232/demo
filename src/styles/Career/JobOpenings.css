@@ -2,7 +2,9 @@
 
 .jobs-section {
   padding: 4rem 5%;
-  background: #132165;
+  background-image:
+    /* fill gradient */
+    linear-gradient(135deg, #451b78 0%, #254186 100%);
 }
 
 .jobs-heading {
