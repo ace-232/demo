@@ -41,11 +41,12 @@
 
 /* === Boxes === */
 .industry-box {
+  border: 3px solid transparent;
   background-image:
     /* fill gradient */
-    linear-gradient(135deg, rgb(195, 163, 248) 0%,rgb(148, 113, 200) 100%),
+    linear-gradient(135deg, rgb(201, 173, 247) 0%,rgb(130, 145, 198) 100%),
     /* subtle border glow (fades out) */
-    linear-gradient(135deg, rgba(38, 75, 150, 0.6), rgba(0,0,0,0));
+    linear-gradient(135deg, rgba(4, 4, 4, 0.6), rgba(255, 255, 255, 0));
   border-radius: 1rem;
   box-shadow:
     0 8px 16px rgba(43, 69, 124, 0.2),
@@ -54,7 +55,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-
+  border: #ffffff 10px solid transparent;
   /* start hidden and shifted down */
   opacity: 0;
   transform: translateY(30px);

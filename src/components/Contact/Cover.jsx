@@ -1,5 +1,5 @@
 import React from "react";
-import headerImage from "../../assets/Case-study.png"; // ← adjust path/case to match your folder
+import headerImage from "../../assets/contact.png"; // ← adjust path/case to match your folder
 import "../../styles/WhatWeDo/Cover.css";
 
 export default function Cover() {
@@ -8,7 +8,7 @@ export default function Cover() {
       className="what-we-do-hero"
       style={{ backgroundImage: `url(${headerImage})` }}
     >
-      <h1 className="what-we-do-title">CASE STUDY</h1>
+      <h1 className="what-we-do-title">CONTACT US</h1>
     </div>
   );
 }

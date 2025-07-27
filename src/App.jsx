@@ -10,6 +10,7 @@ import Lead from "./components/Lead/Lead";
 import Competition from "./components/Competition/Competition";
 import Footer    from "./components/Home/Footer";
 import Career  from "./components/Career/Career";
+import Contact from "./components/Contact/Contact";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/services/lead-generation" element={<Lead />} />
         <Route path="/services/competition-benchmarking" element={<Competition />} />
         <Route path="/career"     element={<Career />}     />
+        <Route path="/contact"    element={<Contact />}    />
       </Routes>
       <Footer />
     </>
