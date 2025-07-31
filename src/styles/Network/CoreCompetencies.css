@@ -32,8 +32,8 @@
 /* Grid layout */
 .competencies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 7rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5rem;
 }
 
 /* Each box starts hidden, off to the left */
@@ -43,7 +43,7 @@
   border: 1px solid transparent;
   background-image:
     /* fill gradient */
-    linear-gradient(135deg, #1b3063 0%, #502785 100%),
+    linear-gradient(180deg, rgb(72, 116, 145) 0%, #573c79 50%),
     /* subtle border glow (fades out) */
     linear-gradient(135deg, rgba(38, 75, 150, 0.6), rgba(0,0,0,0));
   background-origin: padding-box, border-box;

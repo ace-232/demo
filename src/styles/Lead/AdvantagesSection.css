@@ -1,0 +1,114 @@
+.advantages-section {
+  padding: 4rem 2rem;
+   background: radial-gradient(circle at center, rgba(150, 98, 166, 0.3), white);      /* your gold-ish background */
+}
+
+/* Heading */
+.advantages-heading {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+.advantages-heading.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+/* Grid container */
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  /* hide cards until visible */
+}
+@media (max-width: 768px) {
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards */
+.advantages-card {
+   padding: 2rem;
+  border-radius: 1rem;
+  color: #fff;
+  
+  /* 1) transparent border, backgrounds clipped to border-box & padding-box */
+  border: 1px solid transparent;
+  background-image:
+    /* fill gradient */
+    linear-gradient(140deg, #203467 0%, #502785 100%),
+    /* subtle border glow (fades out) */
+    linear-gradient(135deg, rgba(38, 75, 150, 0.6), rgba(0,0,0,0));
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  
+  /* your existing shadows */
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.7),
+    0 16px 32px rgba(0,0,0,0.5);
+  text-align: center;
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+/* When section scrolls into view, trigger each card in sequence */
+.advantages-grid.visible .advantages-card:nth-child(1) {
+  animation: slideInRight 0.8s ease-out 0.4s forwards;
+}
+.advantages-grid.visible .advantages-card:nth-child(2) {
+  animation: slideInRight 0.8s ease-out 0.6s forwards;
+}
+.advantages-grid.visible .advantages-card:nth-child(3) {
+  animation: slideInRight 0.8s ease-out 0.8s forwards;
+}
+
+/* Icon styling */
+.advantages-icon {
+   font-size: 1.8rem;
+  color:rgb(182, 145, 241);
+  background-color: #0b1021;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    2px 2px 4px rgba(0,0,0,0.6);
+  margin-bottom: 1rem;
+}
+
+/* Typography inside cards */
+.advantages-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+.advantages-card p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Keyframes */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
