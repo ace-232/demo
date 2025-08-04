@@ -1,5 +1,5 @@
 import React from 'react';
-import officeImage from '../../assets/about.jpg'; // adjust the path to your image
+import officeImage from '../../assets/meet.jpg'; // adjust the path to your image
 import "../../styles/Contact/Location.css"; // make sure this path matches!
 
 export default function LocationSection() {

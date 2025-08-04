@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-import headerImage from "../../assets/Aboutus.jpg";
+import headerImage from "../../assets/About.jpg";
 import "../../styles/AboutUs/Cover.css";
 
 export default function Cover() {
