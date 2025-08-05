@@ -7,34 +7,39 @@
 .what-we-do-overlay {
   position: absolute;
   inset: 0;                    /* top:0; right:0; bottom:0; left:0; */
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(15, 15, 15, 0.6);
   z-index: 1;                  /* sit it above the image but below the title */
 }
 
 
 .what-we-do-hero {
   position: relative;
-  display: flex;
-  align-items: center;        /* vertical centering */
-  justify-content: center;    /* horizontal centering */
   width: 100%;
-  height: 90vh;
-  background-size: cover;
-  background-position: center;
+  aspect-ratio: 16 / 9;        /* lock to 16:9 */
+  background-position: center top;
+  background-size: 100% auto;  /* full width, auto height */
+  background-repeat: no-repeat;
   overflow: hidden;
+  display: block !important;
+  padding: 0 !important;
 }
 
-/* 3) Make sure the title is left‑aligned */
 .what-we-do-title {
-  position: relative;
+  position: absolute;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
   z-index: 2;
-  color: rgb(228, 215, 249);
+  margin:0;
+  padding: 0;
+
+  color: #e4d7f9;
   font-size: clamp(2.5rem, 5vw, 6rem);
   font-weight: 700;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  letter-spacing: 0.1em;
-  margin: 0;
-  text-align: center;               /* ensure the text itself is left‑aligned */
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+
+  /* your slide-in animation */
   opacity: 0;
   animation: slideInFromRight 0.8s ease-out forwards;
 }
