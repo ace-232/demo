@@ -79,7 +79,7 @@
   pointer-events: auto;
   
   /* this will actually take effect after the 2s delay */
-  background-color: rgb(182, 145, 241);
+  background-color: rgb(255, 255, 255);
 }
 
 .navbar-right {
@@ -110,7 +110,7 @@
 
 /* hover only for the “WHAT WE DO” link */
 .nav-link:hover {
-  color: #fff;
+  color: #45155e;
 }
 
 /* …existing navbar styles… */
@@ -172,5 +172,5 @@ button.nav-link {
 /* then your existing hover/active styles will apply */
 button.nav-link:hover,
 button.nav-link.active {
-  color: #fff; /* or whatever your hover color is */
+  color:#45155e; /* or whatever your hover color is */
 }

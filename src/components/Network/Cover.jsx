@@ -1,6 +1,6 @@
 import React from "react";
 import headerImage from "../../assets/meet.jpg"; // ← adjust path/case to match your folder
-import "../../styles/AboutUs/Cover.css";
+import "../../styles/WhatWeDo/Cover.css";
 
 export default function Cover() {
   return (

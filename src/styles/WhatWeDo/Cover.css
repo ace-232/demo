@@ -4,13 +4,19 @@
   min-height: 100vh;
 }
 
+.what-we-do-overlay {
+  position: absolute;
+  inset: 0;                    /* top:0; right:0; bottom:0; left:0; */
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;                  /* sit it above the image but below the title */
+}
+
+
 .what-we-do-hero {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;   /* instead of center */
-  padding-left: 5%;               /* give it some breathing room */
-  /* (everything else stays the same) */
   position: relative;
+  display: flex;
+  align-items: center;        /* vertical centering */
+  justify-content: center;    /* horizontal centering */
   width: 100%;
   height: 90vh;
   background-size: cover;
@@ -28,8 +34,7 @@
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   letter-spacing: 0.1em;
   margin: 0;
-  padding-left: 10%;
-  text-align: left;               /* ensure the text itself is left‑aligned */
+  text-align: center;               /* ensure the text itself is left‑aligned */
   opacity: 0;
   animation: slideInFromRight 0.8s ease-out forwards;
 }
