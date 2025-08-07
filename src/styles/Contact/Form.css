@@ -1,158 +1,113 @@
-.contact-section {
-padding: 5rem 9%;
- background: radial-gradient(circle at center, rgba(124, 89, 133, 0.3), white);
+.contact-us {
+  padding: 4rem 2rem;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-.contact-section h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
+.contact-title {
+  font-size: 2.7rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s ease-out;
 }
-.h2{
-  margin: 0;
-  padding: 0;
-}
-/* layout */
-.contact-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 0; 
+.contact-title.slide-in-left {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.contact-info,
-.contact-form {
-  background: none;
-  padding: 0;
-  border-radius: 0;
-  box-shadow: none;
-  
-  /* still flex children, each takes half */
-  flex: 1;
+.contact-desc {
+  font-size: 1.3rem;
+  margin-bottom: 5rem;
   opacity: 0;
   transform: translateX(30px);
+  transition: all 0.6s ease-out;
+}
+.contact-desc.slide-in-right {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-/* Contact info tweaks */
-.contact-info a {
-  color: #0e4a86;
-  text-decoration: none;
-}
-.career-tag {
-  margin-top: 1rem;
-  font-size: 1.25rem;
+.section-heading {
+  font-size: 1.5rem;
   font-weight: 600;
+  margin: 3rem 0 3rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s ease-out;
+}
+.fade-in .section-heading {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.contact-info{
-  align-self: self-start;
-  margin: 0 auto;
-  font-size: 1.2rem;
+.contact-form {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards 0.5s;
 }
 
-.contact-form{
-  margin-top: 1rem !important;
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
-/* Form styling */
-.contact-form label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0;
-  font-size: 1.1rem;
-  color: #3f3b3b;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form input[type="tel"],
-.contact-form input[type="number"],
-.contact-form textarea {
-  width: 100%;
-  background: transparent;        /* no box */
-  border: none;                   /* remove all borders */
-  border-bottom: 1px solid #ccc;  /* single bottom line */
-  padding: 0.75rem 0;             /* vertical padding only */
-  margin-bottom: 1rem;          /* space before next field */
-  font-size: 1rem;
-  box-sizing: border-box;
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
-/* 2) Style the dropdown exactly the same, but preserve its arrow */
-.contact-form select {
-  width: 100%;
-  background: transparent;
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.5rem 0;
   border: none;
   border-bottom: 1px solid #ccc;
-  padding: 0.75rem 0;
-  margin-bottom: 1.5rem;
   font-size: 1rem;
-  box-sizing: border-box;
-
-  /* preserve the native arrow */
-  appearance: auto;
-  -webkit-appearance: auto;
-  -moz-appearance: auto;
-}
-
-/* 3) Optional: tweak placeholder color to match your design */
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #999;
-}
-
-.contact-form input[type="file"] {
-  width: 100%;
-  background: transparent;            /* no box */
-  border: none;                       /* remove all borders */
-  border-bottom: 1px solid #ccc;      /* single bottom line */
-  padding: 0.75rem 0;                 /* vertical padding only */
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  box-sizing: border-box;
-  color: #333;                        /* filename text color */
-}
-
-
-/* Optionally, add a hover effect on the button text */
-.contact-form input[type="file"]::file-selector-button:hover {
-  color: #011e3f;
+  background: transparent;
 }
 
 .submit-btn {
-  margin-top: 1.5rem;
-  background:  #561192;
+  display: block;
+  width: 30%;
+  padding: 0.75rem;
+  background: #561192;
   color: #fff;
-  padding: 0.75rem 2rem;
   border: none;
   border-radius: 0.375rem;
-  cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
+  cursor: pointer;
+  margin-top: 2rem;
 }
+
 .submit-btn:hover {
   background: #0b3a6a;
 }
 
-/* animations */
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-50px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(50px); }
-  to   { opacity: 1; transform: translateX(0); }
+.error-message {
+  display: none;       /* hide by default */
+  color: #e63946;      /* red */
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
 }
 
-.slide-in-left {
-  animation: slideInLeft 0.6s ease-out forwards;
-}
-.slide-in-right {
-  animation: slideInRight 0.6s ease-out forwards;
+/* When the input is invalid, show the error-message under it */
+input:invalid + .error-message {
+  display: block;
 }
 
-/* responsive */
-@media (max-width: 768px) {
-  .contact-content {
-    flex-direction: column;
-  }
+/* Optional: highlight the input’s underline in red when invalid */
+input:invalid {
+  border-bottom-color: #e63946;
+}
+
+/* Make the little red asterisk match */
+.asterisk {
+  color: #e63946;
 }
