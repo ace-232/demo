@@ -39,14 +39,17 @@ export default function Form() {
 
   return (
     <section className="contact-us" ref={sectionRef}>
-      <h2 className={`contact-title ${inView ? "slide-in-left" : ""}`}>
-        Get In Touch
-      </h2>
       <p className={`contact-desc ${inView ? "slide-in-right" : ""}`}>
-        We’d love to hear from you! Questions, collaborations, feedback—fill out
-        the form below and our team will get back to you shortly.
+        Need assistance or curious about our offerings? We’re here for you.
+         From expert advice to tailored services, we’re eager to help you achieve your objectives.
       </p>
+      <p className={`contact-desc ${inView ? "slide-in-right" : ""}`}>
+        Simply complete the form below with your name, email, and inquiry, and our team will respond soon.
 
+      </p>
+      <h2 className={`contact-title ${inView ? "slide-in-left" : ""}`}>
+        Let’s take the first step toward your success together
+      </h2>
       <form
         ref={formRef}
         className={`contact-form ${inView ? "fade-in" : ""}`}

@@ -51,6 +51,33 @@ case-study-section {
   margin: 3rem;
 }
 
+.case-study-nav {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.next-case-btn-wrapper {
+  text-align: right;
+  margin-top: 2rem;
+}
+
+.next-case-btn {
+  background-color: #7000ad; /* your theme blue */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.next-case-btn:hover {
+  background-color: #370080;
+}
+
+
 /* Slide‐in keyframes */
 @keyframes slideInLeft {
   from { opacity: 0; transform: translateX(-50px); }

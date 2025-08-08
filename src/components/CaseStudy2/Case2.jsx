@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/CaseStudy/Case1.css";
 import case1Img from "../../assets/energy.jpg";
 
@@ -7,6 +8,8 @@ export default function CaseStudy() {
   const [textAnim,    setTextAnim]    = useState(false);
   const [imageAnim,   setImageAnim]   = useState(false);
   const sectionRef                     = useRef(null);
+  const navigate = useNavigate();
+  
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -82,6 +85,14 @@ export default function CaseStudy() {
   <p>
     Our team successfully scheduled and conducted qualitative discussions within the specified timeframe, ensuring 100% quality. Daily updates were provided to the client, including progress reports, interview outcomes, qualifying question responses, and final discussion transcripts.
   </p>
+  <div className="next-case-btn-wrapper">
+        <button
+          className="next-case-btn"
+          onClick={() => navigate("/case-study")} // change to your actual route
+        >
+        ←  Previous Case Study
+        </button>
+      </div>
       </div>
     </section>
   );

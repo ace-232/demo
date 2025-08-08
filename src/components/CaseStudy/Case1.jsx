@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/CaseStudy/Case1.css";
 import case1Img from "../../assets/cheese.jpg";
 
@@ -7,6 +8,7 @@ export default function CaseStudy() {
   const [textAnim,    setTextAnim]    = useState(false);
   const [imageAnim,   setImageAnim]   = useState(false);
   const sectionRef                     = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -77,7 +79,14 @@ export default function CaseStudy() {
             <p>
               Our team’s dedication ensured all project goals were achieved within the designated timeframe.
             </p>
-          
+           <div className="next-case-btn-wrapper">
+        <button
+          className="next-case-btn"
+          onClick={() => navigate("/case-study-2")} // change to your actual route
+        >
+          Next Case Study →
+        </button>
+      </div>
       </div>
     </section>
   );
