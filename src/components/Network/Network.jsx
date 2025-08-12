@@ -1,14 +1,14 @@
 import React from 'react';
-import Cover from './Cover';
-import About from './About';
 import CoreCompetencies from './CoreCompetencies';
 import FAQSection from './FAQSection';
+import PrimarySection from './PrimarySection';
+import Assist from './Assist';
 
 export default function Network() {
   return (
     <>
-      <Cover />
-      <About />
+      <PrimarySection />
+      <Assist />
       <CoreCompetencies />
       <FAQSection />
     </>

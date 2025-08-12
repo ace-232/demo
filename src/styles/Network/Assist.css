@@ -1,0 +1,115 @@
+:root{
+  --navy:#290f53;
+  --navy-900:#1f083b;
+  --light:#ebd7fb;
+  --text:#e9eef6;
+  --body:#443456;
+  --radius:20px;
+  --accent:#cb5aff;
+}
+
+/* Section */
+.assist{
+  padding: 56px 20px 72px;
+  background:#ffffff;
+}
+.assist__heading{
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-align:center;
+  color:#0e3556;
+  margin:0 0 28px;
+  opacity:0; transform:translateY(-10px);
+  transition: all 500ms ease;
+}
+.assist__heading.show{ opacity:1; transform:none; }
+
+/* Grid */
+.assist__grid{
+  max-width: 1200px;
+  margin: 0 auto;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  opacity:0; transform: translateY(20px);
+  transition: all 600ms ease 120ms;
+}
+.assist__grid.show{ opacity:1; transform:none; }
+
+/* Cards */
+.assist__card{
+  position:relative;
+  border-radius: var(--radius);
+  padding: 24px 22px 26px;
+  min-height: 420px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+  overflow:hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.assist__card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0,0,0,.16);
+}
+
+.assist__card--dark{
+  background: var(--navy);
+  color: var(--text);
+}
+.assist__card--light{
+  background: var(--light);
+  color: #0e2b46;
+}
+
+/* Badge */
+.assist__badge{
+  position:absolute;
+  top:18px; left:18px;
+  width:56px; height:56px;
+  margin-bottom: 1rem;
+  border-radius:50%;
+  background: rgba(255,255,255,.22);
+  display:grid; place-items:center;
+}
+.assist__badgeInner{
+  width:38px; height:38px;
+  border-radius:50%;
+  background:#ffffff;
+  display:grid; place-items:center;
+  color: var(--accent);
+  font-size: 18px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
+}
+
+/* Content */
+.assist__title{
+  margin: 0 0 23px 70px; /* leave space for badge */
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing:.02em;
+  line-height:1.2;
+}
+.assist__text{
+  margin: 0 0 16px 0;
+  line-height:1.7;
+  font-size: 15.75px;
+  color: inherit;
+}
+.assist__list{
+  margin: 8px 0 0 18px;
+  padding:0;
+}
+.assist__list li{
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 992px){
+  .assist__grid{ grid-template-columns: 1fr; gap:16px; }
+  .assist__card{ min-height: unset; }
+  .assist__title{ margin-left: 70px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .assist__heading, .assist__grid{ transition: none !important; transform:none !important; opacity:1 !important; }
+}
