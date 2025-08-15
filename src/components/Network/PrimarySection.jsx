@@ -42,7 +42,7 @@ export default function PrimarySection() {
              100 sectors and 100+ countries
           </h3>
           <p className="primary-sec__para">
-            As a leading executive search firm. in India, 
+            As a leading executive search firm in India, 
             we possess a proven track record of identifying and placing right leaders
              and managers who possess the requisite experience, network, business acumen, 
              and ambition to spearhead innovative products and brands.

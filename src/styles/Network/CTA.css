@@ -1,0 +1,51 @@
+.cta {
+  background: #3e1a5d;              /* dark bar */
+  padding: 18px 0;
+}
+
+.cta__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cta__text {
+  color: #e6e6e6;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+/* Button */
+.cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background: #9115ea;            /* bright blue like the screenshot */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.cta__btn:hover { 
+  transform: translateY(-1px);
+  background: #3515ea;             /* slightly darker on hover */
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+}
+.cta__btn:active { transform: translateY(0); }
+
+/* Mobile: center & stack */
+@media (max-width: 640px) {
+  .cta__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
