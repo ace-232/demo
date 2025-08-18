@@ -1,0 +1,90 @@
+:root{
+  --purple: #25126b;
+  --purple-dark: #2b0f53;
+  --disc: #e1d5fa;             /* light purple circle */
+  --ink: #0f1720;
+  --muted: #36393d;
+}
+
+/* Section container */
+.ca{
+  padding: 56px 20px 64px;
+  background: #fff;
+  text-align: center;
+}
+.ca__heading{
+  font-size: clamp(28px, 5.5vw, 48px);
+  font-weight: 900;
+  letter-spacing: .01em;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.ca__heading span{ color: var(--purple); }
+.ca__lead{
+  max-width: 920px;
+  margin: 0 auto 28px;
+  color: rgb(33, 31, 31);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* Grid of 9 */
+.ca__grid{
+  max-width: 1220px;
+  margin: 0 auto;
+  display: grid;
+   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(16px, 3vw, 40px) clamp(12px, 2.2vw, 28px);
+  opacity: 0; transform: translateY(18px);
+  transition: all 600ms ease;
+}
+.ca__grid.show{ opacity: 1; transform: none; }
+
+.ca__item{ text-align: center; }
+
+/* Circular badge */
+.ca__disc{
+  --size: 210px;
+  width: var(--size); height: var(--size);
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: radial-gradient(80% 80% at 30% 25%, #f7f2ff 0, var(--disc) 60%, #ece3ff 100%);
+  box-shadow:
+    0 24px 40px rgba(34, 14, 64, 0.12),
+    inset 0 -10px 30px rgb(71, 19, 117);
+  display: grid; place-items: center;
+}
+.ca__icon{
+  font-size: 72px;
+  color: var(--purple-dark);
+}
+
+/* Label */
+.ca__label{
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0e2133;
+}
+
+/* Hover effect */
+.ca__item:hover .ca__disc{
+  transform: translateY(-3px);
+  transition: transform .2s ease;
+}
+
+.ca__disc{ --size: clamp(80px, 28vw, 160px) !important; }
+.ca__icon{ font-size: clamp(36px, 6vw, 72px) !important; }
+
+/* Responsive */
+@media (max-width: 1024px){
+  .ca__grid{ grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .ca__disc{ --size: 190px; }
+}
+@media (max-width: 560px){
+  .ca__grid{ grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .ca__disc{ --size: 180px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .ca__grid{ transition: none !important; transform: none !important; opacity: 1 !important; }
+}

@@ -1,12 +1,16 @@
 import React from 'react';
-import Cover from './Cover';
-
+import PrimarySection from './PrimarySection';
+import CompetitiveAnalysis from './CompetitiveAnalysis';
+import WhyUs from './WhyUs';
+import CompetitorAdvantages from './CompetitorAdvantages';
 
 export default function Competition() {
   return (
     <>
-      <Cover />
-
+      <PrimarySection />
+      <CompetitiveAnalysis />
+      <WhyUs />
+      <CompetitorAdvantages />
     </>
   );
 }

@@ -1,0 +1,119 @@
+/* src/styles/Home/CompetitorAdvantages.css */
+:root{
+  --navy:#0e2b46;
+  --navy-800:#0c243b;
+  --light:#f2e8ff;
+  --ink:#0f1720;
+  --muted:#e6f0ff;
+  --accent:#b98cff;
+  --radius:24px;
+}
+
+/* Section */
+.adv{
+  padding: 56px 20px 64px;
+  background: #fffaf3;
+}
+.adv__heading{
+  text-align:center;
+  font-weight:900;
+  font-size: clamp(26px, 4.8vw, 44px);
+  color:#0f2f4d;
+  margin:0 0 4rem;
+}
+
+/* Grid: 4 in a row */
+.adv__grid{
+  max-width: 1200px;
+  margin: 0 auto;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  gap: 22px;
+}
+
+/* Cards */
+.adv__card{
+  position:relative;
+  padding: 26px 24px;
+  border-radius: var(--radius);
+  color:#fff;
+  box-shadow: 0 24px 46px rgba(0,0,0,.18);
+  overflow:hidden;
+}
+
+/* Dark (sides) + Light (middle) tones */
+.adv__card--dark{
+  background: linear-gradient(180deg, var(--navy), var(--navy-800));
+}
+.adv__card--light{
+  background: var(--light);
+  color:#102438;
+  box-shadow: 0 20px 36px rgba(86,33,140,.12);
+}
+
+/* Badge (check in circle) */
+.adv__badge{
+  position:absolute; top:18px; left:18px;
+  width:62px; height:62px; border-radius:50%;
+  background: rgba(255,255,255,.22);
+  display:grid; place-items:center;
+}
+.adv__badgeInner{
+  width:42px; height:42px; border-radius:50%;
+  background:#ffffff; color:#8a5cff;
+  display:grid; place-items:center;
+  font-size:18px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.05);
+}
+
+.adv__title{
+  margin: 54px 0 8px;  /* space for badge */
+  font-size:22px; font-weight:800;
+}
+.adv__text{
+  margin:0;
+  line-height:1.75;
+  color: inherit;
+}
+
+/* Animations */
+.slide-left{
+  transform: translateX(-38px);
+  opacity: 0;
+  transition: transform 650ms cubic-bezier(.2,.7,.2,1), opacity 650ms ease;
+}
+.show{ transform: none !important; opacity: 1 !important; }
+
+/* Fan-out from the middle:
+   cards 2 & 3 appear first; outer 1 & 4 follow and slide outward */
+.fan{
+  opacity:0;
+  transform: translateY(28px);
+  transition: transform 700ms cubic-bezier(.2,.7,.2,1), opacity 700ms ease;
+}
+.fan.show{ opacity:1; transform: none; }
+
+/* subtle outward nudge and stagger */
+.i2{ transform: translateY(28px) translateX(-10px); transition-delay: 60ms; }
+.i3{ transform: translateY(28px) translateX(10px);  transition-delay: 60ms; }
+.i1{ transform: translateY(28px) translateX(-24px); transition-delay: 160ms; }
+.i4{ transform: translateY(28px) translateX(24px);  transition-delay: 160ms; }
+
+/* Keep 4-in-a-row; allow horizontal scroll on very small screens */
+@media (max-width: 980px){
+  .adv__grid{
+    grid-auto-flow: column;
+    grid-template-columns: repeat(4, minmax(280px, 1fr));
+    overflow-x:auto;
+    padding-bottom:6px;
+    scroll-snap-type: x mandatory;
+  }
+  .adv__card{ scroll-snap-align: start; min-width: 280px; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .slide-left, .fan, .i1, .i2, .i3, .i4{
+    transition: none !important; transform: none !important; opacity: 1 !important;
+  }
+}

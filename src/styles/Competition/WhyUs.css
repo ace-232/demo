@@ -1,0 +1,113 @@
+/* src/styles/Home/BenchmarkingWhyUs.css */
+:root{
+  --navy: #0c2a45;
+  --purple1: #2a2469;
+  --purple2: #5a2f8e;
+  --tile: #0f1a2a;
+  --tile-glow: rgba(153, 115, 255, 0.35);
+  --ink: #0f1720;
+  --muted: #dfe7ff;
+  --radius: 22px;
+}
+
+/* Section */
+.bmw{
+  padding: 56px 20px 70px;
+  background: #f1f3fe;
+}
+.bmw__heading{
+  text-align: center;
+  color: var(--navy);
+  font-weight: 900;
+  letter-spacing: .02em;
+  font-size: clamp(1.5rem, 4.6vw, 3rem);
+  margin: 0 0 4rem;
+}
+
+/* 4 cards in a single row */
+.bmw__grid{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+/* Card */
+.bmw__card{
+  position: relative;
+  padding: 26px 24px 26px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background-image:
+    /* fill gradient */
+    linear-gradient(135deg, #1b3063 0%, #502785 100%),
+    /* subtle border glow (fades out) */
+    linear-gradient(135deg, rgba(38, 75, 150, 0.6), rgba(0,0,0,0));
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  
+  /* your existing shadows */
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.7),
+    0 16px 32px rgba(0,0,0,0.5);
+    color: #ffffff;
+  overflow: hidden;
+}
+
+/* Icon tile like the screenshot */
+.bmw__iconTile{
+  width: 64px; height: 64px;
+  border-radius: 14px;
+  background: var(--tile);
+  display: grid; place-items: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.06) inset;
+  margin-bottom: 14px;
+}
+.bmw__icon{
+  font-size: 30px;
+  color: #cbb6ff;               /* soft purple icon */
+  filter: drop-shadow(0 0 8px var(--tile-glow));
+}
+
+.bmw__title{
+  margin: 6px 0 6px;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+.bmw__text{
+  margin: 0;
+  color: #edf0ff;
+  line-height: 1.75;
+}
+
+/* Animations */
+.slide-left{
+  transform: translateX(-38px);
+  opacity: 0;
+  transition: transform 650ms cubic-bezier(.2,.7,.2,1), opacity 650ms ease;
+}
+.slide-up{
+  transform: translateY(26px);
+  opacity: 0;
+  transition: transform 700ms cubic-bezier(.2,.7,.2,1) 90ms, opacity 700ms ease 90ms;
+}
+.show{ transform: none !important; opacity: 1 !important; }
+
+/* Keep 4-in-a-row; allow horizontal scroll on very small screens */
+@media (max-width: 980px){
+  .bmw__grid{
+    grid-auto-flow: column;
+    grid-template-columns: repeat(4, minmax(280px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scroll-snap-type: x mandatory;
+  }
+  .bmw__card{ scroll-snap-align: start; min-width: 280px; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .slide-left, .slide-up{ transition: none !important; transform: none !important; opacity: 1 !important; }
+}
