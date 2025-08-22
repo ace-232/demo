@@ -4,7 +4,7 @@
   align-items: flex-start;
   padding: 60px 40px;
   font-family: 'Segoe UI', sans-serif;
- background: radial-gradient(circle at center, rgba(182, 131, 197, 0.3), white);
+ background: #fffaf3;
 }
 
 .testimonial-left {
