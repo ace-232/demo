@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
-import '../../styles/Home/Services.css';
-import expertImg from "../../assets/network.jpg";
-import leadGenImg from "../../assets/lead.jpg";
-import benchImg from "../../assets/comp.jpg";
+import "../../styles/Home/Services.css";
+
+import expertImg from "../../assets/net.png";
+import leadGenImg from "../../assets/lead1.png";
+import benchImg from "../../assets/comp1.png";
 import knowMoreIcon from "../../assets/know-icon.png";
 
 const services = [
   {
-    img: expertImg,
+    img: expertImg, // used as the small icon image
     alt: "Expert Network Access",
     title: "Expert Network Access",
     text:
@@ -51,21 +52,26 @@ export default function Services() {
     <section className="services-section" ref={ref}>
       <h2 className="services-title">Our Services</h2>
       <p className="services-subtitle">
-  Your one-stop suite for expert connections, qualified leads, and competitive insights.
-</p>
+        Connect with industry-leading experts, discover qualified leads tailored to your business, and gain real-time competitive insights—all in one powerful platform.
+Accelerate your growth, make smarter decisions, and stay ahead in your market with our integrated suite for expert networking, lead generation, and market intelligence.
+      </p>
+
       <div className={`services-cards ${visible ? "show" : ""}`}>
         {services.map((svc) => (
-          <div key={svc.title} className="service-card">
-            <div className="service-image">
-              <img src={svc.img} alt={svc.alt} />
+          <article key={svc.title} className="service-card">
+            {/* small icon area (you can swap the imported images here) */}
+            <div className="service-iconWrap">
+              <img src={svc.img} alt={svc.alt} className="service-iconImg" />
             </div>
+
             <h3 className="service-heading">{svc.title}</h3>
             <p className="service-text">{svc.text}</p>
-            <a href="#" className="service-link">
-              <img src={knowMoreIcon} alt="" className="service-icon" />
-              Know More
+
+            <a href="#" className="service-link" aria-label={`Know more about ${svc.title}`}>
+              <img src={knowMoreIcon} alt="" className="service-linkIcon" />
+              Know more
             </a>
-          </div>
+          </article>
         ))}
       </div>
     </section>

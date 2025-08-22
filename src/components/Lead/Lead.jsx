@@ -1,16 +1,16 @@
 import React from 'react';
-import Cover from './Cover';
-import AboutUs from './About';
-import UseCases from './UseCases';
+import CTA from '../Network/cta';
 import AdvantagesSection from './AdvantagesSection';
+import PrimarySection from './PrimarySection';
+import ImpactingBrands from './ImpactingBrands';
 
 export default function Lead() {
   return (
     <>
-      <Cover />
-      <AboutUs />
-      <UseCases />
+      <PrimarySection />
       <AdvantagesSection />
+      <ImpactingBrands />
+      <CTA />
     </>
   );
 }

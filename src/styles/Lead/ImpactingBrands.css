@@ -1,0 +1,71 @@
+:root{
+  --ink:#101214;
+  --accent:#0b0f12;
+  --tick:#181d2e;
+}
+
+/* Section */
+.impact{ background:#f2e8ff; ; padding:48px 20px 80px; }
+
+/* Title */
+.impact__title{
+  text-align:center; color:#181d2e;
+  font-weight:900; line-height:1.05;
+  font-size:clamp(1.7rem,6vw,3.4rem); margin:0 0 3rem;
+}
+.slide-left{ opacity:0; transform:translateX(-40px); transition:all 700ms cubic-bezier(.2,.7,.2,1); }
+.show{ opacity:1; transform:none; }
+
+/* 3-column grid: left list | center badge | right list */
+.impact__grid{
+  max-width:1400px; margin:0 auto;
+  display:grid; grid-template-columns:1fr auto 1fr;
+  gap:clamp(16px,4vw,60px);
+}
+
+/* Lists */
+.impact__list{ display:grid; gap:16px; color: #0b2d4a; }
+.impact__item{
+  display:grid; grid-template-columns:38px 1fr; color: #0b0f12;
+  align-items:center; gap:12px; opacity:0; transform:translateY(14px);
+}
+.impact__tick{
+  width:32px;height:32px;border-radius:50%;display:grid;place-items:center;
+  color:var(--tick); border:3px solid var(--tick); background:transparent; font-size:14px;
+}
+.impact__label{ font-size:clamp(18px,2.2vw,24px); font-weight:700; color:var(--accent); }
+
+/* Staggered pair reveal (row 1 both sides, then row 2, etc.) */
+@keyframes rise { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
+.impact__list.reveal .impact__item{
+  animation:rise 600ms cubic-bezier(.2,.7,.2,1) both;
+  animation-delay:calc(var(--i) * 160ms);
+}
+
+/* Center badge */
+.impact__center{ display:flex; align-items:center; justify-content:center; }
+.impact__badge{
+  width:min(300px,80vw); height:216px;
+  border-radius:28px; background:#0b2d4a; color:#e9fff5;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:10px; text-align:center; font-weight:800; letter-spacing:.06em;
+  box-shadow:0 18px 36px rgba(0,0,0,.18), inset 0 0 0 1px rgba(255,255,255,.08);
+  opacity:0; transform:scale(.96);
+  transition:transform 600ms cubic-bezier(.2,.7,.2,1), opacity 600ms ease;
+}
+.impact__badge span:first-child{ font-size:26px; }
+.impact__badge span:last-child{ font-size:26px; }
+.impact__badge.show{ opacity:1; transform:scale(1); }
+
+/* Mobile */
+@media (max-width:780px){
+  .impact__grid{ grid-template-columns:1fr; gap:20px; }
+  .impact__list--right{ order:3; }
+  .impact__center{ order:2; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .slide-left{ transition:none !important; transform:none !important; opacity:1 !important; }
+  .impact__item{ opacity:1 !important; transform:none !important; animation:none !important; }
+  .impact__badge{ opacity:1 !important; transform:none !important; transition:none !important; }
+}

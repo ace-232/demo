@@ -15,7 +15,7 @@ export default function Cover() {
       {showWhite && <div className="white-overlay" />}
       <video
         className="cover-video"
-        src="/demo/cover.mp4"
+        src="/demo/home.mp4"
         autoPlay
         muted
         loop
