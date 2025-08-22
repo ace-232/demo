@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaGlobeAmericas } from "react-icons/fa";
 import "../../styles/Network/PrimarySection.css";
-import image from "../../assets/network1.jpg"; // replace with your actual image
+import image from "../../assets/lead.jpg"; // replace with your actual image
 
 export default function PrimarySection() {
   const ref = useRef(null);
