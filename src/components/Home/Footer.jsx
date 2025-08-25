@@ -1,5 +1,6 @@
 import React from "react";
-import '../../styles/Home/Footer.css';
+import { Link } from "react-router-dom";          // ⬅️ add this
+import "../../styles/Home/Footer.css";
 import logo from "../../assets/logoAHR.png";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 
@@ -9,16 +10,24 @@ export default function Footer() {
       <div className="footer-content">
         {/* about */}
         <div className="footer-col about">
-          <img src={logo} alt="Agilityhive Research logo" className="footer-logo" />
+          <Link to="/" aria-label="Go to homepage">
+            <img src={logo} alt="Agilityhive Research logo" className="footer-logo" />
+          </Link>
+
           <p>
-            Agilityhive Research dynamic market research firm based in India. We specialize in delivering innovative solutions
+            Agilityhive Research dynamic market research firm based in India. We specialize in
+            delivering innovative solutions
           </p>
-          <a href="#" className="read-more">Read More</a>
+
+          <Link to="/about-us" className="read-more">Read More</Link>
+
           <div className="socials">
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaTwitter /></a>
-            <a href="#"><FaLinkedinIn /></a>
-            <a href="#"><FaEnvelope /></a>
+            <a href="https://www.linkedin.com/company/agilityhive-research/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <FaLinkedinIn />
+            </a>
+            <a href="mailto:connect@agilityhiveresearch.com" aria-label="Email">
+              <FaEnvelope />
+            </a>
           </div>
         </div>
 
@@ -26,11 +35,11 @@ export default function Footer() {
         <div className="footer-col">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Why Us</a></li>
-            <li><a href="#">What We Do</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Career</a></li>
+            <li><Link to="/about-us">About Us</Link></li>
+            <li><Link to="/case-study">Case Studies</Link></li>
+            <li><Link to="/services/expert-network-access">Services</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
+            <li><Link to="/career">Career</Link></li>
           </ul>
         </div>
 
@@ -38,10 +47,9 @@ export default function Footer() {
         <div className="footer-col">
           <h3>Services</h3>
           <ul>
-            <li><a href="#">Expert Network Access</a></li>
-            <li><a href="#">On-Demand Research Support</a></li>
-            <li><a href="#">Competition Benchmarking</a></li>
-            <li><a href="#">Lead Generation Service</a></li>
+            <li><Link to="/services/expert-network">Expert Network Access</Link></li>
+            <li><Link to="/services/lead-generation">Lead Generation Service</Link></li>
+            <li><Link to="/services/competitive-benchmarking">Competition Benchmarking</Link></li>
           </ul>
         </div>
 
@@ -49,7 +57,7 @@ export default function Footer() {
         <div className="footer-col">
           <h3>Contact Info</h3>
           <p>Noida, India.</p>
-          <p>connect@agilityhiveresearch.com</p>
+          <p><a href="mailto:connect@agilityhiveresearch.com">connect@agilityhiveresearch.com</a></p>
         </div>
       </div>
 

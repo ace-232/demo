@@ -83,6 +83,7 @@
 
 .footer-col ul li a:hover {
   color: #03305F;
+  text-decoration: underline;
 }
 
 .footer-col:last-child p {
