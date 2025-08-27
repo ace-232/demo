@@ -1,98 +1,125 @@
+/* Base */
 .footer {
-  background: white;
-  padding: 60px 2rem 20px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
+  background: #fff;
+  color: #2b2e33;
+  padding: 56px 2rem 20px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  max-width: 1200px;
+.footer--v2 .footer-logo { width: 230px; height: 100px; object-fit: contain; }
+
+/* Grid layout like the reference */
+.footer-grid {
+  max-width: 1220px;
   margin: 0 auto;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1.1fr 0.5fr 0.8fr 1.25fr; /* brand | col1 | col2 | connect */
+  gap: 32px;
+  align-items: start;
 }
 
-.footer-col {
-  flex: 1 1 180px;
+/* Brand block */
+.f-brand .f-region {
+  margin: 16px 0 6px;
+  font-weight: 700;
+  color: #555;
 }
-
-.footer-col.about {
-  max-width: 300px;
-}
-
-.footer-logo {
-  height: 80px;
-  width: 260px;
-}
-
-.footer-col.about p {
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
-}
-
-.read-more {
-  display: inline-block;
-  margin-bottom: 1rem;
-  color: #03305F;
+.f-brand .f-email {
+  color: #0a4f8f;
   text-decoration: none;
-  font-weight: 500;
+  text-underline-offset: 3px;
 }
+.f-brand .f-email:hover { text-decoration: underline; }
 
-.read-more:hover {
-  text-decoration: underline;
-}
-
-.socials {
-  display: flex;
-  gap: 12px;
-}
-
-.socials a {
-  color: #03305F;
-  font-size: 1.2rem;
-  transition: color 0.3s;
-}
-
-.socials a:hover {
-  color: #011e3f;
-}
-
-.footer-col h3 {
-  font-size: 1.2rem;
-  color: #03305F;
-  margin-bottom: 1rem;
-}
-
-.footer-col ul {
+/* Columns of links */
+.f-list {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  columns: 1; /* keep single column like reference */
 }
-
-.footer-col ul li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-col ul li a {
-  color: #333;
+.f-list li + li { margin-top: 10px; }
+.f-list a {
+  color: #2b2e33;
   text-decoration: none;
-  transition: color 0.3s;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+.f-list a:hover,
+.f-list a:focus-visible {
+  color: #0a4f8f;
+  text-decoration: underline;            /* underline on hover, per your request */
 }
 
-.footer-col ul li a:hover {
-  color: #03305F;
-  text-decoration: underline;
+/* Connect block */
+.f-connect-title {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  color: #555;
+  font-weight: 800;
+}
+.f-connect-copy {
+  margin: 0 0 18px;
+  color: #4a4f57;
+  line-height: 1.7;
 }
 
-.footer-col:last-child p {
-  margin-bottom: 0.5rem;
+/* Large round social icons */
+.f-socials-lg {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+.social-pill {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.social-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.18);
 }
 
+/* brand backgrounds */
+.social-pill.fb { background: #1877f2; }
+.social-pill.li { background: #0a66c2; }
+.social-pill.ig {
+  background: radial-gradient(circle at 30% 110%, #feda75 0, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
+}
+
+/* Bottom strip */
 .footer-bottom {
   text-align: center;
   margin-top: 40px;
   font-size: 0.9rem;
-  color: #777;
+  color: #7b7f87;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .f-connect { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Keep your previous link underline behavior for other footer links */
+.footer-col ul li a:hover,
+.footer-col ul li a:focus-visible {
+  text-decoration: underline;
 }
