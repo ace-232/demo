@@ -10,9 +10,7 @@ export default function Footer() {
       <div className="footer-grid">
         {/* Brand / location / email */}
         <div className="f-brand">
-          <Link to="/" aria-label="Go to homepage">
             <img src={logo} alt="Agilityhive Research logo" className="footer-logo" />
-          </Link>
 
           <p className="f-region">Noida, India.</p>
           <a className="f-email" href="mailto:connect@agilityhiveresearch.com">

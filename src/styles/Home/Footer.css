@@ -6,7 +6,7 @@
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
-.footer--v2 .footer-logo { width: 230px; height: 100px; object-fit: contain; }
+.footer--v2 .footer-logo { width: 140px; height: 80px; object-fit: contain; }
 
 /* Grid layout like the reference */
 .footer-grid {
