@@ -69,3 +69,36 @@
   .impact__item{ opacity:1 !important; transform:none !important; animation:none !important; }
   .impact__badge{ opacity:1 !important; transform:none !important; transition:none !important; }
 }
+/* ===== Enhanced Responsiveness for Impacting Brands ===== */
+
+/* Large desktops / ultrawide */
+@media (min-width: 1440px) {
+  .impact__title { font-size: 3.6rem; }
+  .impact__badge span:first-child,
+  .impact__badge span:last-child { font-size: 30px; }
+  .impact__label { font-size: 1.5rem; }
+}
+
+/* Tablets (769px–1024px) */
+@media (max-width: 1024px) and (min-width: 781px) {
+  .impact__grid { grid-template-columns: 1fr auto; gap: 32px; }
+  .impact__list--right { order: 3; }
+  .impact__center { order: 2; }
+  .impact__badge { width: min(260px, 70vw); height: 200px; }
+}
+
+/* Phones (≤780px) — you already collapse to 1 column, improve text sizes */
+@media (max-width: 780px) {
+  .impact { padding: 36px 16px 60px; }
+  .impact__title { font-size: 2rem; margin-bottom: 2rem; }
+  .impact__label { font-size: 1.05rem; }
+  .impact__badge { height: 180px; }
+}
+
+/* Very small devices (≤400px) */
+@media (max-width: 400px) {
+  .impact__title { font-size: 1.6rem; }
+  .impact__badge { width: 90%; height: 160px; border-radius: 20px; }
+  .impact__badge span { font-size: 18px; }
+  .impact__label { font-size: 0.95rem; }
+}

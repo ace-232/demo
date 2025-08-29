@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import "../../styles/Home/Services.css";
 
 import expertImg from "../../assets/net.png";
@@ -13,6 +14,7 @@ const services = [
     title: "Expert Network Access",
     text:
       "Connect instantly with industry veterans and subject-matter experts to get the insights you need—when you need them.",
+      to: "/services/expert-network-access",
   },
   {
     img: leadGenImg,
@@ -20,6 +22,7 @@ const services = [
     title: "Lead Generation Service",
     text:
       "Fill your pipeline with high-quality prospects sourced and qualified by our data-driven outreach and nurturing strategies.",
+      to: "/services/lead-generation",
   },
   {
     img: benchImg,
@@ -27,6 +30,7 @@ const services = [
     title: "Competition Benchmarking",
     text:
       "Stay ahead of the pack with comprehensive market analyses, side-by-side feature comparisons, and performance KPIs.",
+      to: "/services/competition-benchmarking",  
   },
 ];
 
@@ -67,10 +71,10 @@ Accelerate your growth, make smarter decisions, and stay ahead in your market wi
             <h3 className="service-heading">{svc.title}</h3>
             <p className="service-text">{svc.text}</p>
 
-            <a href="#" className="service-link" aria-label={`Know more about ${svc.title}`}>
+            <Link to={svc.to} className="service-link" aria-label={`Know more about ${svc.title}`}>
               <img src={knowMoreIcon} alt="" className="service-linkIcon" />
               Know more
-            </a>
+            </Link>
           </article>
         ))}
       </div>

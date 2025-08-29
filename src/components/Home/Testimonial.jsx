@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../../styles/Home/Testimonial.css';
 
-import avatar1 from '../../assets/avatar1.jpg';
-import avatar2 from '../../assets/avatar2.jpg';
 import arrowLeft from '../../assets/back.png';
 import arrowRight from '../../assets/next.png';
 
@@ -10,19 +8,17 @@ export default function Testimonial() {
   const testimonials = [
     {
       id: 1,
-      text: `“Thanks to the deep consumer insights and trend analyses delivered by the team, 
-      we were able to pivot our product offering and increase our first-quarter revenue by 28%.
-       Their qualitative interviews and data dashboards were a game-changer.”`,
-      name: 'Madonna Raul',
-      img: avatar1,
+      text: `“Partnering with Agilityhive Research was a genuinely positive experience
+      . Their team's dedication to keeping communication open and adhering to agreed timelines
+       made the entire project run smoothly and efficiently.”`,
+      name: 'Project Manager, A leading MR company',
     },
     {
       id: 2,
-      text: `“The custom market segmentation study gave us clarity on which new regions to expand into. 
-      Their rigorous survey design and real-time reporting meant we launched confidently—and saw a 35%
-       uplift in engagement within weeks.”`,
-      name: 'Alexander Smith',
-      img: avatar2,
+      text: `“Agilityhive Research helps us quickly find the right experts. 
+      Their extensive network ensures that we engage with the right professionals 
+      every time.”`,
+      name: 'Project Director, Consulting Firm',
     },
   ];
 
@@ -55,7 +51,7 @@ export default function Testimonial() {
     return () => obs.disconnect();
   }, []);
 
-  const { text, name, img } = testimonials[current];
+  const { text, name } = testimonials[current];
 
   return (
     <section className="testimonial-section">
@@ -63,7 +59,7 @@ export default function Testimonial() {
         ref={leftRef}
         className={`testimonial-left${inView ? ' in-view' : ''}`}
       >
-        <span className="testimonial-tag">Testimonials</span>
+        <span className="testimonial-tag">What our client Say</span>
         <h2 className="testimonial-title">
           Trust Built on<br />
           Millions of <br /> Experiences
@@ -73,7 +69,6 @@ export default function Testimonial() {
       <div className="testimonial-right">
         <p className="testimonial-text">{text}</p>
         <div className="testimonial-author">
-          <img src={img} alt={name} className="testimonial-img" />
           <span className="testimonial-name">{name}</span>
         </div>
         <div className="testimonial-controls">

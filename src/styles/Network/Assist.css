@@ -113,3 +113,24 @@
 @media (prefers-reduced-motion: reduce){
   .assist__heading, .assist__grid{ transition: none !important; transform:none !important; opacity:1 !important; }
 }
+/* --- Responsive upgrades --- */
+@media (min-width: 1440px) {
+  .assist__heading { font-size: 42px; }
+  .assist__title   { font-size: 24px; }
+  .assist__text    { font-size: 17px; }
+}
+@media (max-width: 1024px) {
+  .assist__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .assist { padding: 40px 16px 56px; }
+  .assist__grid { grid-template-columns: 1fr; }
+  .assist__heading { font-size: 28px; }
+  .assist__title   { margin-left: 70px; font-size: 20px; }
+  .assist__text    { font-size: 15px; }
+}
+@media (max-width: 400px) {
+  .assist__title { margin-left: 60px; font-size: 18px; }
+  .assist__badge { width: 48px; height: 48px; }
+  .assist__badgeInner { width: 32px; height: 32px; font-size: 16px; }
+}

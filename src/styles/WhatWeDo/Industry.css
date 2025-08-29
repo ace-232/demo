@@ -127,3 +127,47 @@
     grid-template-columns: 1fr;
   }
 }
+/* ==== Industry: full-range responsiveness ==== */
+
+/* Fluid heading size */
+.industry-heading { font-size: clamp(1.4rem, 3vw, 2rem); }
+
+/* Base grid is 4 cols, minimum 220px already set */
+.industry-grid {
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+/* ≥1600px: generous spacing on big screens */
+@media (min-width: 1600px){
+  .industry-section { padding: clamp(3.5rem, 4vw, 6rem) 8%; }
+  .industry-grid { gap: clamp(1.25rem, 2vw, 2.5rem); }
+}
+
+/* 1200–1599: 4 cols stay, tighter gap */
+@media (max-width: 1599px) and (min-width: 1200px){
+  .industry-grid { gap: clamp(1rem, 1.5vw, 2rem); }
+}
+
+/* 992–1199: move to 3 cols if width narrows */
+@media (max-width: 1199px) and (min-width: 992px){
+  .industry-grid { grid-template-columns: repeat(3, minmax(220px, 1fr)); }
+}
+
+/* 768–991: 2 cols */
+@media (max-width: 991px) and (min-width: 768px){
+  .industry-grid { grid-template-columns: repeat(2, minmax(220px, 1fr)); }
+}
+
+/* ≤767: 1 col */
+@media (max-width: 767px){
+  .industry-grid { grid-template-columns: 1fr; }
+  .industry-box { padding: clamp(1.25rem, 4vw, 1.5rem); }
+  .industry-box .title { font-size: clamp(1rem, 3.4vw, 1.125rem); }
+  .industry-box .desc { font-size: clamp(0.9rem, 3.2vw, 0.95rem); }
+}
+
+/* ≤360: compact */
+@media (max-width: 360px){
+  .industry-section { padding: 3rem 4%; }
+  .industry-grid { gap: 1rem; }
+}

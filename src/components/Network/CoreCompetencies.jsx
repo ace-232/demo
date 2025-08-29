@@ -4,7 +4,7 @@ import {
   FaAward,
   FaMoneyBillWave,
   FaNetworkWired,
-  FaMicroscope
+  FaSearch
 } from "react-icons/fa";
 import "../../styles/Network/CoreCompetencies.css";
 
@@ -12,7 +12,7 @@ const ITEMS = [
   { Icon: FaAward,         title: "Deep industry expertise",        sub: "Efficient time-bound process", aria: "Expertise" },
   { Icon: FaMoneyBillWave, title: "Cost-effective solutions",       sub: "Optimized value",              aria: "Cost-effective" },
   { Icon: FaNetworkWired,  title: "Vast professional network",      sub: "Established & trusted",        aria: "Professional network" },
-  { Icon: FaMicroscope,    title: "Comprehensive research",         sub: "Advanced capabilities",        aria: "Research capabilities" },
+  { Icon: FaSearch,    title: "Comprehensive research",         sub: "Advanced capabilities",        aria: "Research capabilities" },
 ];
 
 export default function BestPractices() {

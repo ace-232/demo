@@ -123,3 +123,49 @@
     flex: 1 1 80px;
   }
 }
+/* ==== Value: full-range responsiveness ==== */
+
+/* Fluid heading/intro */
+.value-heading { font-size: clamp(1.6rem, 3.2vw, 2.5rem); }
+.value-intro { font-size: clamp(0.95rem, 1.4vw, 1.05rem); }
+
+/* Spiral behaves like a responsive wrap row */
+.value-spiral {
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+/* Circle scales by viewport */
+.circle {
+  width: clamp(84px, 8vw, 120px);
+  height: clamp(84px, 8vw, 120px);
+  font-size: clamp(1.25rem, 3.2vw, 2rem);
+  border-width: clamp(6px, 1vw, 10px);
+}
+.circle-label {
+  font-size: clamp(0.95rem, 2.6vw, 1.3rem);
+}
+
+/* ≥1440: add breathing room */
+@media (min-width: 1440px){
+  .value-section { padding: clamp(3.5rem, 5vw, 6rem) 8%; }
+}
+
+/* 992–1199: medium laptop tweaks (keep gaps comfy) */
+@media (max-width: 1199px) and (min-width: 992px){
+  .value-spiral { gap: clamp(2rem, 5vw, 4rem); }
+}
+
+/* 768–991: tablet */
+@media (max-width: 991px) and (min-width: 768px){
+  .value-spiral { gap: clamp(1.5rem, 4vw, 3.5rem); }
+}
+
+/* ≤767: phones (already fluid via clamp) */
+@media (max-width: 767px){
+  .value-section { padding: clamp(2.5rem, 6vw, 4rem) 5%; }
+}
+
+/* ≤360: compact spacing */
+@media (max-width: 360px){
+  .circle-label { margin-top: 0.75rem; }
+}

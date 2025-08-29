@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../../styles/Home/AboutUs.css';
 
 export default function AboutUs() {
@@ -30,7 +31,7 @@ export default function AboutUs() {
           <p>
             Welcome to Agility Hive Research, an energetic Indian market research company. Our expertise lies in providing cutting-edge solutions to top academic institutions, corporations, and consulting firms across diverse industries. Our team of professionals is committed to delivering intelligent, data-driven analysis so you can reach your strategic objectives and make well-informed decisions.
           </p>
-          <button className="know-more-btn">
+         <Link to="/about" className="know-more-btn">
             Know More
             <span className="arrow-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -43,7 +44,7 @@ export default function AboutUs() {
                 />
               </svg>
             </span>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

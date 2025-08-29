@@ -100,7 +100,7 @@ animation: pulsePurple 1.6s ease-out infinite;
   line-height: 1.3;
   font-weight: 700;
   color: #631289; /* bold headline like ref */
-  text-align: center !important;
+  text-align: left !important;
 }
 
 .primary-sec__para {
@@ -153,4 +153,22 @@ animation: pulsePurple 1.6s ease-out infinite;
   .primary-sec__media .pulse {
     animation: none !important;
   }
+}
+/* --- Responsive upgrades --- */
+@media (min-width: 1440px) {
+  .primary-sec__heading { font-size: 42px; }
+  .primary-sec__title   { font-size: 2rem; }
+  .primary-sec__para    { font-size: 1.25rem; }
+}
+@media (max-width: 768px) {
+  .primary-sec { padding: 48px 16px 64px; }
+  .primary-sec__heading { font-size: 26px; }
+  .primary-sec__title   { font-size: 20px; line-height: 1.35; }
+  .primary-sec__para    { font-size: 1rem; }
+  .network-icon { font-size: 1.4rem; width: 2.4rem; height: 2.4rem; }
+}
+@media (max-width: 480px) {
+  .primary-sec__heading { font-size: 22px; }
+  .primary-sec__title   { font-size: 18px; }
+  .primary-sec__para    { font-size: 0.95rem; }
 }

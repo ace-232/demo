@@ -1,8 +1,8 @@
 .cover-container {
   position: relative;
   width: 100%;
-  height: 90vh;
   overflow: hidden;
+   height: min(100svh, 90vh);
 }
 
 /* White flash intro (0–3s) */
@@ -11,8 +11,10 @@
   inset: 0;
   background: #fff;
   z-index: 3;
-  animation: fadeOut 0.5s ease-in-out 2s forwards;
+  /* No animation here by default — let React toggle it */
+  animation: fadeOut 0.5s ease-in-out forwards;
 }
+
 @keyframes fadeOut {
   to { opacity: 0; visibility: hidden; }
 }
@@ -38,7 +40,7 @@
   display: flex;
   justify-content: flex-start; /* left-align */
   align-items: center;
-  padding: 0 5%;
+   padding: max(12px, env(safe-area-inset-left)) max(5vw, env(safe-area-inset-right));
 }
 
 /* Remove the fixed width so it “shrinks to fit” */
@@ -51,23 +53,26 @@
 }
 
 .cover-sentence {
-  color: #fff;                             /* solid white text */
-  font-size: 60px;   /* responsive sizing */
-  font-weight: 700;                        /* bold */
-  line-height: 1.2;
+   font-size: clamp(26px, 6vw, 60px);
+  line-height: 1.15;
+  max-width: min(22ch, 90vw);
+  word-wrap: anywhere;
+  color: #fff;           
+  font-weight: 700;
   text-align: left;
   mix-blend-mode: screen;
   opacity: 0;
-  animation: slideInFromRight 0.8s ease-out 1.9s forwards;
+  animation: slideInFromRight 0.8s ease-out 0s forwards;
 }
 
 .cta-btn {
+  font-size: clamp(14px, 1.3vw, 16px);
+  padding: clamp(10px, 1.2vw, 14px) clamp(16px, 2vw, 24px);
+  border-radius: 5px;
   display: inline-flex;        /* align text + icon in a row */
   align-items: center;
   gap: 0.5rem; 
   margin-top: 1rem;
-  padding: 1rem 2rem;
-  font-size: 1rem;
   background-color: rgb(255, 255, 255);
   border: rgb(22, 38, 86) 1px solid;
   color: #050000;
@@ -76,7 +81,7 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
   align-self: flex-start;
   opacity: 0;
-  animation: slideInFromLeft 0.8s ease-out 2.1s forwards;
+  animation: slideInFromLeft 0.8s ease-out 0s forwards;
 }
 
 .btn-arrow {
@@ -109,5 +114,65 @@
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+@media (max-width: 700px){
+  .cover-content{ justify-content: center; /* center on small screens */ }
+  .cover-info{ align-items: center; text-align: center; }
+  .cta-btn{ align-self: center; }
+}
+/* ===== Make the video FIT on mobile (no cropping) ===== */
+
+/* Phones & narrow tablets */
+@media (max-width: 700px){
+  .cover-container{
+    height: auto;                                   /* allow content to define height */
+    min-height: clamp(320px, 60vw, 520px);          /* sensible floor for portrait */
+    background-color: #000;                          /* letterbox bars look clean */
+  }
+
+  .cover-video{
+    object-fit: contain !important;                  /* show the whole video */
+    background-color: #000;                          /* fill letterbox area */
+    /* keep it centered while scaling down */
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; height: 100%;
+    position: absolute;
+  }
+
+  /* Slightly darker overlay so text stays readable when more of the video shows */
+  .dark-overlay{ background: rgba(0,0,0,0.55); }
+
+  /* Center the content and keep it compact */
+  .cover-content{
+    justify-content: center;
+    align-items: center;
+    padding: max(12px, env(safe-area-inset-top)) clamp(16px, 5vw, 24px);
+    inset: 0;
+  }
+  .cover-info{
+    align-items: center;
+    text-align: center;
+    width: min(92vw, 640px);
+  }
+  .cover-sentence{
+    font-size: clamp(22px, 6.2vw, 34px);
+    max-width: min(26ch, 92vw);
+  }
+  .cta-btn{ align-self: center; }
+}
+
+/* Very short landscape phones (e.g., 812x375) */
+@media (max-height: 520px) and (orientation: landscape){
+  .cover-container{
+    height: auto;
+    min-height: 280px;
+  }
+  .cover-video{
+    object-fit: contain !important;
+  }
+  .cover-content{
+    padding: 12px clamp(12px, 4vw, 20px);
   }
 }

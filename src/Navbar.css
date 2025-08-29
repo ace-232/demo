@@ -1,94 +1,95 @@
-.hero{
+/* --- Container --- */
+:root { --header-h: 72px; }          /* desktop header height */
+@media (max-width: 768px) {
+  :root { --header-h: 64px; }        /* mobile header height */
+}
+
+.hero {
   position: sticky;
   top: 0;
   z-index: 998;
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
+  height: var(--header-h);
 }
-  
 
+/* White flash ONLY when spin runs */
+.nav-flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  z-index: 1000;
+  animation: navFadeOut 0.4s ease-in-out 0.5s forwards;
+}
+@keyframes navFadeOut { to { opacity: 0; visibility: hidden; } }
+
+/* --- Logo --- */
 .logo-wrapper {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   gap: 10px;
   z-index: 999;
-  transition: all 1s ease;
+  transition: all 0.8s ease;
 }
 
-.logo-image {
-  width: 150px;
-  height: 150px;
-  animation: spin 0.5s linear infinite;
-  transition: all 1s ease;
+/* Centered at start (only during spin) */
+.logo-wrapper.centered {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.brand-text {
-  font-size: 2rem;
-  color: #13375d;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 1s ease 1s;
-  align-items: center;      
-}
-
+/* Final position (top-left) */
 .logo-wrapper.animate {
-  top: 1.5rem;
-  left: 2.5rem;
+  top: 1.2rem;
+  left: 2.0rem;
   transform: none;
 }
 
-.logo-wrapper.animate .logo-image {
+.logo-image {
   width: 50px;
   height: 50px;
-  animation: none;
+  transition: all 0.8s ease;
 }
 
-.logo-wrapper.animate .brand-text {
-  opacity: 1;
+/* Only spin when needed */
+.logo-image.spinning {
+  width: 150px;
+  height: 150px;
+  animation: spin 0.7s linear infinite;
 }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+.brand-text {
+  font-size: 1.85rem;
+  color: #13375d;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.2s;
 }
+.brand-text.show-brand { opacity: 1; }
 
-/* === NAVBAR === */
+/* --- Navbar --- */
 .navbar {
   display: flex;
   justify-content: flex-end;
-  height: 50px;
   align-items: center;
-  padding: 1.5rem 2.5rem;
+  padding: 1.25rem 2.5rem;
+  height: 64px;
 
-  /* start transparent & hidden */
   opacity: 0;
   pointer-events: none;
   background: transparent;
 
-  /* fade in nav, then fade in background after 2s */
   transition:
-    opacity 1s ease 1.3s,
-    background 0.5s ease 0.7s;
+    opacity 0.5s ease 0.4s,
+    background 0.3s ease;
 }
 
 .navbar.show-nav {
   opacity: 1;
   pointer-events: auto;
-  
-  /* this will actually take effect after the 2s delay */
-  background-color: rgb(255, 255, 255);
-}
-
-.navbar-right {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 12px;     
-  gap: 20px; 
+  background-color: #fff;
 }
 
 .nav-links {
@@ -108,69 +109,121 @@
   transition: color 0.2s ease;
 }
 
-/* hover only for the “WHAT WE DO” link */
-.nav-link:hover {
-  color: #45155e;
-}
+.nav-link:hover { color: #45155e; }
+.nav-link.active { color: #45155e; }
 
-/* …existing navbar styles… */
+/* --- Dropdown --- */
+.nav-item { position: relative; }
 
-.nav-item {
-  position: relative;
-}
-
-/* hide by default */
 .dropdown-menu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  margin-top: 0.25rem;
-  background-color:  rgb(203, 179, 243);
+  margin-top: 0.4rem;
+  background-color: rgb(203, 179, 243);
   border-radius: 0.25rem;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   list-style: none;
-  min-width: 200px;
+  min-width: 220px;
   z-index: 10;
 }
 
-/* show on hover */
-.nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-/* also show when we’ve toggled “open” via JS */
-.nav-item.dropdown.open .dropdown-menu {
-  display: block;
-}
-
-/* your dropdown links */
 .dropdown-link {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 0.9rem;
   color: #174576;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
+.dropdown-link:hover { color: #000203; }
 
-.dropdown-link:hover {
-  color: #000203;
-}
+/* Hover works on desktop, JS "open" supports mobile & click */
+.nav-item.dropdown:hover .dropdown-menu { display: block; }
+.nav-item.dropdown.open .dropdown-menu { display: block; }
 
-/* strip all native button chrome */
+/* Button reset for SERVICES trigger */
 button.nav-link {
   background: none;
   border: none;
   padding: 0;
   margin: 0;
-  font: inherit;    /* keep same font/size/weight as your <a> */
-  color: inherit;   /* same color as links */
-  cursor: pointer;  /* pointer cursor on hover */
-  outline: none;    /* if you don’t want the focus ring */
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+button.nav-link:hover,
+button.nav-link.active { color: #45155e; }
+
+/* --- Hamburger (mobile) --- */
+.hamburger {
+  display: none;            /* hidden on desktop */
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 38px;
+  height: 34px;
+  padding: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1001;            /* above the logo */
+}
+.hamburger span {
+  display: block;
+  height: 3px;
+  margin: 5px 0;
+  background: #103257;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-/* then your existing hover/active styles will apply */
-button.nav-link:hover,
-button.nav-link.active {
-  color:#45155e; /* or whatever your hover color is */
+/* --- Responsive layout --- */
+@media (max-width: 992px) {
+  .nav-links { gap: 1.25rem; }
+}
+
+@media (max-width: 768px) {
+  .logo-wrapper.animate { left: 1rem; top: 0.9rem; }
+  .brand-text { font-size: 1.5rem; }
+
+  .hamburger { display: block; }
+
+  .navbar {
+    position: relative;
+    padding: 0.75rem 1rem 0.9rem 1rem;
+    height: auto;
+  }
+
+  /* Start hidden on mobile */
+  .nav-links {
+    position: absolute;
+    top: 64px;             /* below header area */
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background: #ffffff;
+    border-top: 1px solid rgba(16, 50, 87, 0.1);
+    padding: 0.5rem 0;
+  }
+
+  /* Show when menu open */
+  .navbar.open .nav-links { display: flex; }
+
+  .nav-links > li { padding: 0.6rem 1rem; }
+
+  /* Mobile dropdown: keep it in the flow */
+  .nav-item.dropdown .dropdown-menu {
+    position: static;
+    margin: 0.4rem 0 0.2rem 0;
+    min-width: unset;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  /* Make hover not required on touch screens */
+  .nav-item.dropdown:hover .dropdown-menu { display: none; }
+  .nav-item.dropdown.open .dropdown-menu { display: block; }
 }

@@ -117,3 +117,47 @@
   /* each box picks up its own delay from inline style */
   animation: slideInRight 0.6s ease-out forwards;
 }
+/* ==== Features: full-range responsiveness ==== */
+
+/* Fluid heading + intro */
+.help-heading { font-size: clamp(1.6rem, 3.2vw, 2.5rem); }
+.help-desc { font-size: clamp(0.95rem, 1.4vw, 1.1rem); }
+
+/* Grid tiers: 3 → 2 → 1 with spacious large-screen layout */
+.help-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+/* ≥1440px: give cards breathing space */
+@media (min-width: 1440px){
+  .help-section { padding: clamp(3rem, 5vw, 6rem) 6%; }
+  .help-grid { gap: clamp(1.25rem, 2vw, 2.5rem); }
+}
+
+/* 1200–1439 */
+@media (max-width: 1439px) and (min-width: 1200px){
+  .help-grid { gap: clamp(1rem, 2vw, 2rem); }
+}
+
+/* 992–1199: 3 cols are ok but tighter */
+@media (max-width: 1199px) and (min-width: 992px){
+  .help-grid { gap: 1.5rem; }
+}
+
+/* 768–991: switch to 2 cols */
+@media (max-width: 991px) and (min-width: 768px){
+  .help-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ≤767: 1 col */
+@media (max-width: 767px){
+  .help-grid { grid-template-columns: 1fr; }
+  .help-heading { font-size: clamp(1.4rem, 5.5vw, 1.8rem); }
+  .help-desc { padding-inline: 0; }
+}
+
+/* ≤360: keep cards readable */
+@media (max-width: 360px){
+  .help-box { padding: 1.25rem; }
+}

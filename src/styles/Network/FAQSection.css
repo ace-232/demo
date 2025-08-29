@@ -103,3 +103,20 @@
 .slide-in-right {
   animation: slideInRight 0.6s ease-out forwards;
 }
+/* --- Responsive upgrades --- */
+@media (min-width: 1440px) {
+  .faq-heading   { font-size: 3rem; }
+  .faq-subheading { font-size: 1.3rem; }
+}
+@media (max-width: 768px) {
+  .faq-section { padding: 3rem 1rem; }
+  .faq-heading { font-size: 1.8rem; }
+  .faq-subheading { font-size: 1rem; }
+  .faq-question { font-size: 0.95rem; padding: 0.75rem; }
+  .faq-answer { font-size: 0.9rem; padding: 0.75rem; }
+}
+@media (max-width: 480px) {
+  .faq-heading { font-size: 1.6rem; }
+  .faq-subheading { font-size: 0.95rem; }
+  .faq-question { font-size: 0.9rem; }
+}

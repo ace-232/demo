@@ -86,3 +86,10 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     grid-template-columns: 1fr;
   }
 }
+@media (max-width: 992px) {
+  .skills-heading { font-size: 1.6rem; }
+}
+@media (max-width: 600px) {
+  .skills-heading { font-size: 1.4rem; }
+  .skill-text { font-size: 0.95rem; }
+}

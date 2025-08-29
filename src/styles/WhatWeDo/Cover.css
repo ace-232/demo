@@ -50,3 +50,19 @@
   to   { transform: translateX(0);      opacity: 1; }
 }
 
+@media (max-width: 768px) {
+  .what-we-do-hero {
+    aspect-ratio: auto;         /* allow natural height */
+    background-size: contain;   /* fit entire image */
+    background-position: top center;
+    min-height: 260px;          /* fallback min height */
+  }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+  .what-we-do-title {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+    line-height: 1.2;
+  }
+}

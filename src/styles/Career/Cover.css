@@ -20,7 +20,7 @@
 /* Main headline */
 .cover-headline {
   position: absolute;
-  top: 23%;
+  top: 28%;
   white-space: nowrap;
   z-index: 2;
   margin: 0;
@@ -52,7 +52,7 @@
 /* Description paragraph */
 .cover-desc {
   position: absolute;
-  top: 75%;
+  top: 71%;
   z-index: 2;
   margin: 0;
   padding-left: 5%;
@@ -88,4 +88,17 @@
 }
 .cover--slide-up {
   animation: slideUp 0.8s ease-out forwards;
+}
+/* Make cover image smaller on mobile to avoid cutting off */
+@media (max-width: 768px) {
+  .cover-section {
+    aspect-ratio: auto;          /* allow natural height */
+    min-height: 300px;
+    background-size: contain;    /* fit image fully */
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  .cover-headline { font-size: clamp(2rem, 8vw, 3rem); top: 20%; }
+  .cover-subhead  { font-size: clamp(1.4rem, 6vw, 2.2rem); top: 40%; }
+  .cover-desc     { font-size: clamp(1rem, 4vw, 1.2rem); top: 65%; }
 }

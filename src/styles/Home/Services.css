@@ -5,13 +5,14 @@
 }
 
 .services-title {
-  font-size: 2.5rem;
+  font-size: clamp(24px, 4.5vw, 40px);
   color: #ffffff;
   margin-bottom: 2rem;
 }
 
 .services-subtitle {
-  font-size: 1.15rem;
+font-size: clamp(14px, 1.6vw, 18px);
+  padding: 0 1rem;
   color: #dbe6ff;
   max-width: 1200px;
   margin: 0 auto 28px;
@@ -129,4 +130,33 @@
 /* Press feedback */
 .services-cards.show .service-card:active {
   transform: translateY(-4px) scale(1.01);
+}
+
+@media (max-width: 640px){
+  .services-cards{ grid-template-columns: 1fr; gap: 16px; }
+}
+@media (min-width: 641px) and (max-width: 980px){
+  .services-cards{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* Image area uses aspect-ratio so cards stay even */
+.service-image{
+  width: 100%;
+  aspect-ratio: 16/10;            /* tweak if you prefer */
+  overflow: hidden;
+  border-radius: 10px;
+  background: #eef1ff;
+}
+.service-image img{
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* Text scales */
+.service-heading{ font-size: clamp(16px, 1.8vw, 22px); }
+.service-text{ font-size: clamp(14px, 1.4vw, 16px); }
+
+/* Keep card hover “pop” without fighting reveal transform */
+.services-cards.show .service-card{
+  transition: transform 220ms cubic-bezier(.2,.7,.2,1), box-shadow 220ms ease, background-color .2s;
 }

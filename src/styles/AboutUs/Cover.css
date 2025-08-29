@@ -42,7 +42,7 @@
 
 /* your big title */
 .cover-title {
-  margin: 0;
+  margin-top: 1rem;
   font-size: clamp(2rem, 5vw, 4rem);
   line-height: 1.1;
   font-weight: 700;
@@ -57,6 +57,9 @@
   line-height: 1.5;
   max-width: 480px;
   opacity: 0;
+   max-width: 100%;
+    font-size: 1rem;
+    margin-top: 1.5rem;
 }
 
 /* slide‑in keyframes */
@@ -75,4 +78,115 @@
 }
 .slide-in-right {
   animation: slideInRight 0.8s ease-out 0.3s forwards;
+}
+/* ==== Cover: full-range responsiveness ==== */
+
+/* Fluid container + typography */
+.about-cover {
+  /* On huge screens, prevent over-stretching text area */
+  --text-max: 720px;
+  min-height: 100svh; /* better on mobile than 100vh */
+}
+
+/* Breadcrumb fluid sizing */
+.breadcrumb { font-size: clamp(0.9rem, 1.2vw, 1.1rem); }
+
+/* Text block scales fluidly */
+.cover-text { max-width: min(50%, var(--text-max)); }
+.cover-title {
+  font-size: clamp(1.8rem, 4.5vw, 3.75rem);
+}
+.cover-subtitle {
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  max-width: min(480px, 80vw);
+}
+
+/* ≥1440px (2K / large desktops): widen text a bit */
+@media (min-width: 1440px) {
+  .about-cover { --text-max: 860px; }
+  .cover-text { max-width: min(48%, var(--text-max)); }
+}
+
+/* 1200–1439: comfy desktop */
+@media (max-width: 1439px) and (min-width: 1200px){
+  .cover-text { max-width: min(52%, var(--text-max)); }
+}
+
+/* 992–1199: small laptops */
+@media (max-width: 1199px) and (min-width: 992px){
+  .cover-text { max-width: min(58%, var(--text-max)); }
+}
+
+/* 768–991: tablets landscape/portrait */
+@media (max-width: 991px) and (min-width: 768px){
+  .cover-text { max-width: 70%; }
+}
+
+/* ≤767: phones */
+@media (max-width: 767px){
+  .about-cover {
+    /* short mobile browsers: avoid content under address bars */
+    min-height: auto;
+    padding-top: clamp(1.25rem, 4vw, 2rem);
+    padding-bottom: clamp(1.25rem, 4vw, 2rem);
+  }
+  .cover-text { max-width: 100%; text-align: center; }
+  .cover-subtitle { max-width: 100%; margin-top: 1.25rem; }
+}
+
+/* Extra small ≤360 */
+@media (max-width: 360px){
+  .cover-title { line-height: 1.2; }
+}
+
+/* Short landscapes (e.g., 812x375) */
+@media (max-height: 520px) and (orientation: landscape){
+  .about-cover { min-height: auto; }
+}
+/* === Make the cover image look smaller & fit on mobile === */
+
+/* Tablets & up: keep your current "cover" behavior */
+@media (min-width: 768px){
+  .about-cover{
+    height: 100svh;              /* safer than 100vh on mobile bars */
+    background-size: cover;      /* fill nicely on larger screens */
+    background-position: center; 
+    background-repeat: no-repeat;
+  }
+}
+
+/* Phones: show the whole image without cropping */
+@media (max-width: 767px){
+  .about-cover{
+    height: auto;                /* allow section to grow to image size */
+    min-height: clamp(260px, 55vw, 420px);
+    background-size: contain;    /* fit entire image inside the box */
+    background-position: top center;
+    background-repeat: no-repeat;
+    /* optional: color behind letterbox area if image doesn't fill */
+    background-color: #0b1021;   /* or whatever matches your theme */
+    padding-top: clamp(16px, 5vw, 24px);
+    padding-bottom: clamp(16px, 5vw, 24px);
+  }
+
+  /* Make text adapt to the narrower layout */
+  .cover-text{
+    max-width: 100%;
+    text-align: center;
+    margin-inline: auto;
+  }
+  .cover-title{
+    font-size: clamp(1.6rem, 6.4vw, 2.2rem);
+    margin-top: .5rem;
+  }
+  .cover-subtitle{
+    max-width: 100%;
+    font-size: clamp(0.95rem, 4vw, 1.05rem);
+    margin-top: 0.9rem;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px){
+  .cover-title{ line-height: 1.2; }
 }

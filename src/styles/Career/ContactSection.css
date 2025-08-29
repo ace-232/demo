@@ -156,3 +156,12 @@
     flex-direction: column;
   }
 }
+@media (max-width: 768px) {
+  .contact-heading { font-size: 1.8rem; margin-bottom: 2rem; }
+  .contact-info { font-size: 1rem; text-align: center; }
+  .contact-form label { font-size: 1rem; }
+}
+@media (max-width: 480px) {
+  .contact-heading { font-size: 1.5rem; }
+  .submit-btn { width: 100%; padding: 0.75rem; }
+}

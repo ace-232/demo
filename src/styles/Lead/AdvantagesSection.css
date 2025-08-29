@@ -112,3 +112,35 @@
     transform: translateX(0);
   }
 }
+/* ===== Enhanced Responsiveness for Advantages Section ===== */
+
+/* Large desktops / ultrawide */
+@media (min-width: 1440px) {
+  .advantages-heading { font-size: 2.5rem; }
+  .advantages-card h3 { font-size: 1.5rem; }
+  .advantages-card p  { font-size: 1.125rem; }
+  .advantages-icon    { font-size: 2.2rem; }
+}
+
+/* Tablets (769px–1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .advantages-grid { grid-template-columns: repeat(2, 1fr); }
+  .advantages-heading { font-size: 1.8rem; }
+}
+
+/* Phones (≤768px) — already present, improve spacing */
+@media (max-width: 768px) {
+  .advantages-section { padding: 3rem 1.25rem; }
+  .advantages-heading { font-size: 1.6rem; margin-bottom: 2rem; }
+  .advantages-card { padding: 1.5rem; }
+  .advantages-icon { font-size: 1.6rem; }
+  .advantages-card h3 { font-size: 1.15rem; }
+  .advantages-card p { font-size: 0.95rem; }
+}
+
+/* Very small devices (≤400px) */
+@media (max-width: 400px) {
+  .advantages-heading { font-size: 1.4rem; }
+  .advantages-card { padding: 1rem; }
+  .advantages-icon { font-size: 1.4rem; padding: 0.5rem; }
+}

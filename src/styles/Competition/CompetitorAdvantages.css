@@ -117,3 +117,25 @@
     transition: none !important; transform: none !important; opacity: 1 !important;
   }
 }
+/* --- Responsive upgrades --- */
+
+/* Tablet: 2x2 grid */
+@media (max-width: 1024px) {
+  .adv__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+/* Phone: 1 column */
+@media (max-width: 640px) {
+  .adv__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .adv__heading { font-size: 1.5rem; margin-bottom: 2rem; }
+  .adv__title { font-size: 1.1rem; }
+  .adv__text { font-size: 0.95rem; }
+  .adv__badge { width: 50px; height: 50px; }
+  .adv__badgeInner { width: 34px; height: 34px; font-size: 14px; }
+}

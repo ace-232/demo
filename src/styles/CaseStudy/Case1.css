@@ -4,7 +4,6 @@
   --purple-900: #5a3fc3;
   --yellow: #f6c344;
   --ink: #222;
-  --muted: #5c6070;
   --radius: 16px;
 }
 
@@ -48,7 +47,7 @@
   margin: 0;
   font-size: 17px;
   line-height: 1.8;
-  color: var(--muted);
+  color: black
 }
 
 /* Lists with ticks */
@@ -66,7 +65,7 @@
   align-items: start;
   font-size: 17px;
   line-height: 1.75;
-  color: var(--muted);
+  color: rgb(28, 27, 27);
 }
 
 /* Yellow circular tick badge */
@@ -107,7 +106,7 @@
 .study__panelIntro{ margin: 0 0 8px; line-height: 1.7; }
 
 /* Panel list overrides */
-.study__list--panel .study__li{ color: #fff; }
+.study__list--panel .study__li{ color: #ffffff; }
 .tick--panel{
   color: #ffdf77;
   border-color: #ffdf77;
@@ -165,4 +164,27 @@
 
 .next-case-btn:hover {
   background-color: #370080;
+}
+/* Tablets */
+@media (max-width: 992px) {
+  .study__grid { grid-template-columns: 1fr; gap: 20px; }
+  .study__heading { font-size: 2rem; margin: 1.5rem 0 2.5rem; }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .study { padding: 24px 14px 40px; }
+  .study__heading { font-size: 1.6rem; }
+  .study__h2 { font-size: 1.1rem; }
+  .study__p, .study__li { font-size: 0.95rem; }
+  .study__img { max-width: 90%; margin: 0 auto; }
+  .study__panel { padding: 18px 16px; }
+  .study__panelTitle { font-size: 1.1rem; }
+}
+
+/* Tiny screens */
+@media (max-width: 400px) {
+  .study__heading { font-size: 1.4rem; }
+  .study__h2 { font-size: 1rem; }
+  .next-case-btn { width: 100%; font-size: 0.9rem; }
 }

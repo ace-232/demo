@@ -1,7 +1,6 @@
 :root{
   --accent: #f59a23;  /* arc color (orange like your ref) */
   --navy:   #0b2d4a;
-  --muted:  #5a6673;
 }
 
 /* Section */
@@ -66,7 +65,7 @@
   margin: 8px 0 6px; font-size: 18px; font-weight: 700; color:#122335;
 }
 .bp__sub{
-  margin: 0; font-size: 15.5px; color: var(--muted); line-height: 1.55;
+  margin: 0; font-size: 15.5px; color: black; line-height: 1.55;
 }
 
 /* Hover lift */
@@ -79,4 +78,21 @@
 /* Motion accessibility */
 @media (prefers-reduced-motion: reduce){
   .bp__grid{ transition: none !important; transform: none !important; opacity: 1 !important; }
+}
+/* --- Responsive upgrades --- */
+@media (min-width: 1440px) {
+  .bp__heading { font-size: 42px; }
+  .bp__icon    { font-size: 72px; }
+}
+@media (max-width: 900px) {
+  .bp__grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+}
+@media (max-width: 600px) {
+  .bp__grid { grid-template-columns: 1fr; gap: 20px; }
+  .bp__heading { font-size: 26px; }
+  .bp__circle { --size: 140px; }
+}
+@media (max-width: 400px) {
+  .bp__title { font-size: 16px; }
+  .bp__sub   { font-size: 14px; }
 }

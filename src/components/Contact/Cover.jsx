@@ -9,7 +9,6 @@ export default function Cover() {
       style={{ backgroundImage: `url(${headerImage})` }}
     >
       <div className="what-we-do-overlay" />
-      <h1 className="what-we-do-title">Get In Touch With An Expert</h1>
     </div>
   );
 }

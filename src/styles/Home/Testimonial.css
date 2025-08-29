@@ -1,11 +1,16 @@
 .testimonial-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 60px 40px;
   font-family: 'Segoe UI', sans-serif;
  background: #fffaf3;
+ display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(16px, 4vw, 40px);
+  padding: clamp(24px, 6vw, 60px) clamp(16px, 5vw, 40px);
 }
+
+.testimonial-tag{ font-size: clamp(18px, 5vw, 40px); }
+.testimonial-title{ font-size: clamp(14px, 4.2vw, 32px); }
+.testimonial-text{ font-size: clamp(15px, 1.8vw, 20px); }
+.testimonial-name{ font-size: clamp(16px, 2vw, 20px); }
 
 .testimonial-left {
   max-width: 40%;
@@ -13,17 +18,15 @@
 
 .testimonial-tag {
   background: none;
-  padding: 8px 20px;
+  padding: 8px 0px;
   border-radius: 9999px;
   color: #1e5289;
   font-weight: bold;
-  font-size: 50px;
   display: inline-block;
   text-align: left;
 }
 
 .testimonial-title {
-  font-size: 38px;
   font-weight: bold;
   margin: 20px 0 0;
   line-height: 1.2;
@@ -31,12 +34,11 @@
 }
 
 .testimonial-right {
-  max-width: 55%;
+  max-width: 100%;
   position: relative;
 }
 
 .testimonial-text {
-  font-size: 20px;
   color: #5e6c84;
   line-height: 1.6;
 }
@@ -56,7 +58,6 @@
 }
 
 .testimonial-name {
-  font-size: 20px;
   font-weight: bold;
   color: #0b0b35;
 }
@@ -68,8 +69,8 @@
 }
 
 .arrow-btn {
-  width: 64px;                     /* make the button a bit larger */
-  height: 64px;
+ width: clamp(44px, 6.2vw, 64px);
+  height: clamp(44px, 6.2vw, 64px);
   border-radius: 50%;
   background-color: rgb(174, 131, 244);
   border: none;
@@ -84,10 +85,7 @@
   background-color: #e0e0e0;
 }
 
-.arrow-btn img {
-  width: 24px;                     /* size of your arrow PNG */
-  height: 24px;
-}
+.arrow-btn img{ width: clamp(16px, 2.2vw, 24px); height: clamp(16px, 2.2vw, 24px); }
 
 .testimonial-left .testimonial-tag,
 .testimonial-left .testimonial-title {
@@ -116,4 +114,8 @@
 /* STAGGER: delay the title a bit */
 .testimonial-left.in-view .testimonial-title {
   animation-delay: 0.2s;
+}
+@media (max-width: 900px){
+  .testimonial-section{ grid-template-columns: 1fr; }
+  .testimonial-left, .testimonial-right{ max-width: 100%; }
 }

@@ -88,3 +88,23 @@
 @media (prefers-reduced-motion: reduce){
   .ca__grid{ transition: none !important; transform: none !important; opacity: 1 !important; }
 }
+/* --- Responsive upgrades --- */
+
+/* Tablet: 2 columns */
+@media (max-width: 900px) {
+  .ca__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .ca__lead { font-size: 1rem; padding: 0 1rem; }
+}
+
+/* Phone: 1 column */
+@media (max-width: 600px) {
+  .ca__grid {
+    grid-template-columns: 1fr !important;
+  }
+  .ca__heading { font-size: 1.6rem; }
+  .ca__label { font-size: 1rem; }
+  .ca__disc { --size: 120px !important; }
+  .ca__icon { font-size: 2rem !important; }
+}

@@ -111,3 +111,25 @@
 @media (prefers-reduced-motion: reduce){
   .slide-left, .slide-up{ transition: none !important; transform: none !important; opacity: 1 !important; }
 }
+/* --- Responsive upgrades --- */
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+  .bmw__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+/* Phone: 1 column */
+@media (max-width: 640px) {
+  .bmw__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .bmw__heading { font-size: 1.6rem; margin-bottom: 2rem; }
+  .bmw__title { font-size: 1.1rem; }
+  .bmw__text { font-size: 0.95rem; }
+  .bmw__iconTile { width: 52px; height: 52px; }
+  .bmw__icon { font-size: 24px; }
+}
