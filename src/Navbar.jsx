@@ -54,22 +54,21 @@ function Navbar() {
     setServicesOpen(false);
   }, [location.pathname]);
 
+const spinningPhase = shouldSpinNow && !spinDone;
+
   return (
-    <header className="hero">
-      {/* White overlay ONLY during the spin */}
-       {shouldSpinNow && !spinDone && <div className="nav-flash" />}
-      <div
-        className={`logo-wrapper ${
-          shouldSpinNow && !spinDone ? "centered" : "animate"
-        }`}
-      >
-        <img
-          src={logo}
-          alt="Logo"
-          className={`logo-image ${shouldSpinNow && !spinDone ? "spinning" : ""}`}
-        />
-        <span className={`brand-text ${spinDone ? "show-brand" : ""}`}>AHR</span>
-      </div>
+    <header className={`hero ${spinningPhase ? "spinning" : ""}`}>
+  {/* White overlay ONLY during the spin */}
+  {spinningPhase && <div className="nav-flash" />}
+
+  <div className={`logo-wrapper ${spinningPhase ? "centered" : "animate"}`}>
+    <img
+      src={logo}
+      alt="Logo"
+      className={`logo-image ${spinningPhase ? "spinning" : ""}`}
+    />
+    <span className={`brand-text ${spinDone ? "show-brand" : ""}`}>AHR</span>
+  </div>
 
       {/* Hamburger (mobile) */}
       <button

@@ -1,38 +1,36 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../../styles/Home/Cover.css";
 import arrowIcon from "../../assets/next.png";
 
 export default function Cover() {
-  const location = useLocation();
-  const isHome = location.pathname === "/";
+  const INTRO_KEY = "ahrIntroShown";
 
-  // read session flag before first paint
-  const hasShownRef = useRef(
-    typeof window !== "undefined" && sessionStorage.getItem("ahrCoverShown") === "1"
-  );
-
-  // should we play the white overlay this time?
-  const shouldPlay = isHome && !hasShownRef.current;
-
-  const [showWhite, setShowWhite] = useState(shouldPlay);
+  const alreadyShown = sessionStorage.getItem(INTRO_KEY) === "1";
+  const [showWhite, setShowWhite] = useState(!alreadyShown);
 
   useEffect(() => {
-    if (!shouldPlay) return;
+    if (alreadyShown) return;
 
-    const timer = setTimeout(() => {
+    console.log("▶ First session: showing white overlay");
+
+    const t = setTimeout(() => {
+      console.log("⏱️ Removing white overlay + setting session flag");
       setShowWhite(false);
-      hasShownRef.current = true;
-      sessionStorage.setItem("ahrCoverShown", "1");
+      sessionStorage.setItem(INTRO_KEY, "1");
     }, 1500);
 
-    return () => clearTimeout(timer);
-  }, [shouldPlay]);
+    return () => clearTimeout(t);
+  }, [alreadyShown]);
 
   return (
     <div className="cover-container">
-      {/* White overlay: only once per session */}
-      {showWhite && <div className="white-overlay" />}
+      {showWhite && (
+        <div
+          className="white-overlay"
+          onClick={() => console.log("✅ White overlay actually rendered")}
+        />
+      )}
 
       <video
         className="cover-video"

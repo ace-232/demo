@@ -7,13 +7,15 @@
 
 /* White flash intro (0–3s) */
 .white-overlay {
-  position: absolute;
+  position: fixed;
+  z-index: 1200;         /* < logo-wrapper (we'll raise that) */
+  pointer-events: none;
   inset: 0;
-  background: #fff;
+  background: #ffffff;
   z-index: 3;
+  opacity: 1;
   /* No animation here by default — let React toggle it */
-  animation: fadeOut 0.5s ease-in-out forwards;
-}
+ animation: fadeOut 1s ease-in-out 1.2s forwards;}
 
 @keyframes fadeOut {
   to { opacity: 0; visibility: hidden; }
@@ -81,7 +83,7 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
   align-self: flex-start;
   opacity: 0;
-  animation: slideInFromLeft 0.8s ease-out 0s forwards;
+  animation: slideInFromLeft 0.8s ease-out 1s forwards;
 }
 
 .btn-arrow {
