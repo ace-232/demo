@@ -1,13 +1,21 @@
 // src/components/Contact/Form.jsx
 import React, { useEffect, useRef, useState } from "react";
 import "../../styles/Contact/Form.css";
+import countriesFallback from "../../data/countries.json"; // ← local fallback
 
 export default function Form() {
   const sectionRef = useRef(null);
   const formRef = useRef(null);
+
   const [inView, setInView] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  // Countries + UI state
+  const [countries, setCountries] = useState([]);
+  const [loadingCountries, setLoadingCountries] = useState(true);
+  const [countryErr, setCountryErr] = useState("");
+
+  // Observe section (your animation trigger)
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([entry]) => {
@@ -22,15 +30,44 @@ export default function Form() {
     return () => obs.disconnect();
   }, []);
 
+  // Fetch countries with fallback to local JSON
+  useEffect(() => {
+    (async () => {
+      try {
+        setLoadingCountries(true);
+        setCountryErr("");
+
+        // Try REST Countries first
+        const res = await fetch("https://restcountries.com/v3.1/all?fields=name");
+        if (!res.ok) throw new Error("REST Countries failed");
+        const data = await res.json();
+        const names = data
+          .map((c) => c?.name?.common)
+          .filter(Boolean)
+          .sort((a, b) => a.localeCompare(b));
+
+        setCountries(names);
+      } catch (e) {
+        console.warn("Using local countries fallback:", e?.message || e);
+        setCountryErr("Couldn’t auto-load countries. Using local list.");
+        // Fallback to bundled JSON
+        const names = [...countriesFallback].sort((a, b) => a.localeCompare(b));
+        setCountries(names);
+      } finally {
+        setLoadingCountries(false);
+      }
+    })();
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
 
-    if (formRef.current.checkValidity()) {
+    if (formRef.current?.checkValidity()) {
       // TODO: send data
       console.log("✅ Valid! Submitting…");
     } else {
-      formRef.current.reportValidity();
+      formRef.current?.reportValidity();
     }
   };
 
@@ -41,7 +78,6 @@ export default function Form() {
         Let’s take the first step toward your success together
       </h1>
 
-      {/* Two-column layout */}
       <div className="contact-grid">
         {/* LEFT – intro copy */}
         <aside className="contact-left">
@@ -56,7 +92,7 @@ export default function Form() {
           </p>
         </aside>
 
-        {/* RIGHT – form (unchanged fields & validation) */}
+        {/* RIGHT – form */}
         <form
           ref={formRef}
           className={`contact-form ${inView ? "fade-in" : ""}`}
@@ -71,7 +107,7 @@ export default function Form() {
               First Name <span className="asterisk">*</span>
             </label>
             <input id="firstName" name="firstName" type="text" required />
-            {submitted && !formRef.current.firstName.value && (
+            {submitted && formRef.current && !formRef.current.firstName.value && (
               <small className="error-message">This field is required.</small>
             )}
           </div>
@@ -81,7 +117,7 @@ export default function Form() {
               Last Name <span className="asterisk">*</span>
             </label>
             <input id="lastName" name="lastName" type="text" required />
-            {submitted && !formRef.current.lastName.value && (
+            {submitted && formRef.current && !formRef.current.lastName.value && (
               <small className="error-message">This field is required.</small>
             )}
           </div>
@@ -94,9 +130,11 @@ export default function Form() {
               Email Address <span className="asterisk">*</span>
             </label>
             <input id="email" name="email" type="email" required />
-            {submitted && !formRef.current.email.validity.valid && (
-              <small className="error-message">This field is required.</small>
-            )}
+            {submitted &&
+              formRef.current &&
+              !formRef.current.email.validity.valid && (
+                <small className="error-message">Please enter a valid email.</small>
+              )}
           </div>
 
           <div className="form-group">
@@ -104,7 +142,7 @@ export default function Form() {
               Phone Number <span className="asterisk">*</span>
             </label>
             <input id="phone" name="phone" type="tel" required />
-            {submitted && !formRef.current.phone.value && (
+            {submitted && formRef.current && !formRef.current.phone.value && (
               <small className="error-message">This field is required.</small>
             )}
           </div>
@@ -129,17 +167,36 @@ export default function Form() {
             <input id="zip" name="zip" type="text" />
           </div>
 
+          {/* === Country === */}
           <div className="form-group">
             <label htmlFor="country">
               Country <span className="asterisk">*</span>
             </label>
-            <select id="country" name="country" required>
-              <option value="">Select One</option>
-              <option>India</option>
-              <option>United States</option>
-              <option>Canada</option>
+
+            <select
+              id="country"
+              name="country"
+              required
+              defaultValue=""
+              disabled={loadingCountries}
+            >
+              <option value="" disabled>
+                {loadingCountries ? "Loading countries..." : "Select One"}
+              </option>
+
+              {countries.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
             </select>
-            {submitted && !formRef.current.country.value && (
+
+            {countryErr && (
+              <small className="error-message" style={{ marginTop: 4 }}>
+                {countryErr}
+              </small>
+            )}
+            {submitted && formRef.current && !formRef.current.country.value && (
               <small className="error-message">This field is required.</small>
             )}
           </div>
@@ -152,7 +209,7 @@ export default function Form() {
               Questions / Comments <span className="asterisk">*</span>
             </label>
             <textarea id="message" name="message" rows="4" required />
-            {submitted && !formRef.current.message.value && (
+            {submitted && formRef.current && !formRef.current.message.value && (
               <small className="error-message">This field is required.</small>
             )}
           </div>
